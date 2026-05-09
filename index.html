@@ -47,22 +47,25 @@
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 700; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover, .nav-links a.active { color: var(--purple); }
 
+        .lang-btn {
+            background: transparent; border: 1px solid var(--purple); color: var(--purple);
+            padding: 6px 12px; border-radius: 8px; font-weight: 900; font-size: 0.7rem;
+            cursor: pointer; text-transform: uppercase; margin-left: 15px;
+        }
+
         .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; flex: 1;}
         .section { display: none; animation: slideUp 0.6s forwards; }
         .section.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero Section */
         .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
         .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
         .hero-text h1 span { color: var(--purple); }
-        .hero-text p { font-size: 1.4rem; color: var(--text-secondary); margin-top: 20px; font-weight: 700; }
 
         .avatar-container { position: relative; width: 320px; height: 320px; background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%); display: flex; align-items: center; justify-content: center; }
         .avatar-img { width: 90%; height: 90%; object-fit: contain; filter: drop-shadow(0 0 20px var(--purple)); animation: float 4s ease-in-out infinite; border-radius: 20px; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* Proyectos Cards */
         .item-card {
             background: var(--card); border: 1px solid var(--border);
             border-radius: 20px; margin-bottom: 20px;
@@ -70,7 +73,7 @@
         }
         .item-card:hover { transform: translateY(-5px); border-color: var(--purple); background: #16161a; }
         
-        .card-image { width: 100%; height: 200px; object-fit: cover; background: #1a1a1e; }
+        .card-image { width: 100%; height: 220px; object-fit: cover; background: #1a1a1e; }
         .card-content { padding: 25px; border-left: 4px solid var(--purple); }
         .val-tag { color: var(--purple); font-weight: 900; font-size: 1.1rem; }
 
@@ -90,10 +93,11 @@
         <div class="nav-inner">
             <div class="logo">SANCHEZ<span>LUAAA</span></div>
             <div class="nav-links">
-                <a onclick="navigate('home')" id="btn-home" class="active">Inicio</a>
-                <a onclick="navigate('projects')" id="btn-projects">Proyectos</a>
-                <a onclick="navigate('prices')" id="btn-prices">Precios</a>
-                <a onclick="navigate('social')" id="btn-social">Contacto</a>
+                <a onclick="navigate('home')" id="btn-home" class="active" data-i18n="nav_home">Inicio</a>
+                <a onclick="navigate('projects')" id="btn-projects" data-i18n="nav_projects">Proyectos</a>
+                <a onclick="navigate('prices')" id="btn-prices" data-i18n="nav_prices">Precios</a>
+                <a onclick="navigate('social')" id="btn-social" data-i18n="nav_contact">Contacto</a>
+                <button class="lang-btn" onclick="toggleLanguage()" id="langToggle">ES / MXN</button>
             </div>
         </div>
     </nav>
@@ -104,121 +108,101 @@
         <div id="home" class="section active">
             <div class="hero">
                 <div class="hero-text">
-                    <h1>ROBLOX<br><span>DEVELOPER.</span></h1>
-                    <p>Scripter y UI Designer | SanchezLuaaa</p>
+                    <h1 data-i18n="hero_title">ROBLOX<br><span>DEVELOPER.</span></h1>
+                    <p data-i18n="hero_subtitle">Scripter y UI Designer | SanchezLuaaa</p>
                     <div style="margin-top:30px;">
-                        <span style="background:rgba(168, 85, 247, 0.1); padding:10px 20px; border-radius:50px; font-size:0.8rem; font-weight:800; color:var(--purple); border:1px solid var(--purple);">LUAU SCRIPTER | 4+ AÑOS</span>
+                        <span data-i18n="hero_tag" style="background:rgba(168, 85, 247, 0.1); padding:10px 20px; border-radius:50px; font-size:0.8rem; font-weight:800; color:var(--purple); border:1px solid var(--purple);">LUAU SCRIPTER | 4+ AÑOS</span>
                     </div>
                 </div>
                 <div class="avatar-container">
-                    <!-- Avatar RenderBux sincronizado con tu ID -->
-                    <img src="https://renderbux.com/api/avatar/render?userId=1731406039&type=headshot&size=420" class="avatar-img" alt="SanchezLuaaa Avatar">
+                    <!-- Agrega tu imagen personalizada aquí -->
+                    <img src="image_7392f7.png" class="avatar-img" alt="SanchezLuaaa Avatar">
                 </div>
             </div>
         </div>
 
-        <!-- CATEGORÍAS PRINCIPALES -->
+        <!-- MENU PROYECTOS -->
         <div id="projects" class="section">
-            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;">Mis <span>Trabajos</span></h2>
+            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
             
             <div class="item-card" onclick="openSubMenu('projects-games')">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>🎮 Juegos Trabajados</h3>
-                        <span class="val-tag">Explorar</span>
+                        <h3 data-i18n="cat_games">🎮 Juegos Trabajados</h3>
+                        <span class="val-tag" data-i18n="btn_explore">Explorar</span>
                     </div>
-                    <p style="color:var(--text-secondary);">Experiencias y juegos publicados en Roblox.</p>
                 </div>
             </div>
 
             <div class="item-card" onclick="openSubMenu('projects-showcase')">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>✨ Showcases y Sistemas</h3>
-                        <span class="val-tag">Ver Galería</span>
+                        <h3 data-i18n="cat_showcase">✨ Showcases y Sistemas</h3>
+                        <span class="val-tag" data-i18n="btn_view">Ver Galería</span>
                     </div>
-                    <p style="color:var(--text-secondary);">Sistemas de iluminación, visualizers y UI técnica.</p>
                 </div>
             </div>
         </div>
 
-        <!-- LISTA DE JUEGOS -->
+        <!-- JUEGOS -->
         <div id="projects-games" class="section">
-            <button class="back-btn" onclick="openSubMenu('projects')">← Volver a Categorías</button>
-            <h2 style="margin-bottom: 30px;">Juegos <span>Publicados</span></h2>
+            <button class="back-btn" onclick="openSubMenu('projects')" data-i18n="btn_back">← Volver</button>
+            <h2 data-i18n="list_games">Juegos <span>Publicados</span></h2>
             
-            <!-- Clonar este bloque para más juegos -->
-            <a href="LINK_DE_TU_JUEGO" target="_blank" class="item-card">
-                <img src="URL_MINIATURA_JUEGO" class="card-image" alt="Thumbnail">
+            <!-- COPIA DESDE AQUÍ PARA AGREGAR OTRO JUEGO -->
+            <a href="URL_DEL_JUEGO" target="_blank" class="item-card">
+                <img src="URL_IMAGEN_THUMBNAIL" class="card-image" alt="Game Thumbnail">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>Nombre del Proyecto</h3>
-                        <span class="val-tag">Visitar</span>
+                        <h3>Nombre del Juego</h3>
+                        <span class="val-tag">Play</span>
                     </div>
-                    <p style="color:var(--text-secondary);">Descripción breve de lo que programaste aquí.</p>
                 </div>
             </a>
+            <!-- HASTA AQUÍ -->
         </div>
 
-        <!-- LISTA DE SHOWCASES -->
+        <!-- SHOWCASES -->
         <div id="projects-showcase" class="section">
-            <button class="back-btn" onclick="openSubMenu('projects')">← Volver a Categorías</button>
-            <h2 style="margin-bottom: 30px;">Portfolio <span>Técnico</span></h2>
+            <button class="back-btn" onclick="openSubMenu('projects')" data-i18n="btn_back">← Volver</button>
+            <h2 data-i18n="list_showcase">Portfolio <span>Técnico</span></h2>
             
-            <!-- Clonar este bloque para más showcases -->
-            <a href="LINK_DEL_SHOWCASE" target="_blank" class="item-card">
-                <img src="URL_MINIATURA_SISTEMA" class="card-image" alt="Thumbnail">
+            <!-- COPIA DESDE AQUÍ PARA AGREGAR OTRO SHOWCASE -->
+            <a href="URL_DEL_SHOWCASE" target="_blank" class="item-card">
+                <img src="URL_IMAGEN_THUMBNAIL" class="card-image" alt="Showcase Thumbnail">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>Sistema de Iluminación Global</h3>
-                        <span class="val-tag">Ver Showcase</span>
+                        <h3>Sistema de Iluminación</h3>
+                        <span class="val-tag">View</span>
                     </div>
-                    <p style="color:var(--text-secondary);">Scripts de Strobes y sincronización mediante MessagingService.</p>
                 </div>
             </a>
+            <!-- HASTA AQUÍ -->
         </div>
 
         <!-- PRECIOS -->
         <div id="prices" class="section">
-            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 5px;">Tarifas <span>Sistemas</span></h2>
-            <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 1px;">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
+            <h2 data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
+            <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 30px;" data-i18n="price_warn">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
 
-            <div class="item-card" style="cursor:default;">
-                <div class="card-content">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>Sistemas Básicos</h3>
-                        <span class="val-tag">$120 MXN</span>
-                    </div>
-                    <p style="color:var(--text-secondary);">Bug fixes, scripts simples y optimización básica.</p>
-                </div>
-            </div>
+            <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex; justify-content:space-between;">
+                <h3 data-i18n="p1_name">Sistemas Básicos</h3><span class="val-tag" data-i18n="p1_val">$120 MXN</span>
+            </div></div></div>
 
-            <div class="item-card" style="cursor:default;">
-                <div class="card-content">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>Sistemas Medios</h3>
-                        <span class="val-tag">$180 – $360 MXN</span>
-                    </div>
-                    <p style="color:var(--text-secondary);">Sistemas de música, tiendas, inventarios y herramientas.</p>
-                </div>
-            </div>
+            <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex; justify-content:space-between;">
+                <h3 data-i18n="p2_name">Sistemas Medios</h3><span class="val-tag" data-i18n="p2_val">$180 – $360 MXN</span>
+            </div></div></div>
 
-            <div class="item-card" style="cursor:default;">
-                <div class="card-content">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>Sistemas Premium</h3>
-                        <span class="val-tag">$480 – $960 MXN</span>
-                    </div>
-                    <p style="color:var(--text-secondary);">Sistemas complejos, bases automáticas y gestión de datos masivos.</p>
-                </div>
-            </div>
+            <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex; justify-content:space-between;">
+                <h3 data-i18n="p3_name">Sistemas Premium</h3><span class="val-tag" data-i18n="p3_val">$480 – $960 MXN</span>
+            </div></div></div>
         </div>
 
         <!-- CONTACTO -->
         <div id="social" class="section">
-            <h2 style="margin-bottom: 40px;">Contacto <span>Directo</span></h2>
-            <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900; letter-spacing:1px;">DISCORD COMUNIDAD</a>
-            <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="item-card" style="background:#2d2d2d; border:none; padding:25px; align-items:center; font-weight:900; letter-spacing:1px;">PERFIL DE ROBLOX</a>
+            <h2 style="margin-bottom: 40px;" data-i18n="contact_title">Contacto <span>Directo</span></h2>
+            <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900;">DISCORD COMUNIDAD</a>
+            <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="item-card" style="background:#2d2d2d; border:none; padding:25px; align-items:center; font-weight:900;">PERFIL ROBLOX</a>
         </div>
 
     </div>
@@ -228,6 +212,44 @@
     </footer>
 
     <script>
+        const translations = {
+            es: {
+                nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
+                hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
+                hero_tag: "LUAU SCRIPTER | 4+ AÑOS", proj_title: "Mis <span>Proyectos</span>",
+                cat_games: "🎮 Juegos Trabajados", cat_showcase: "✨ Showcases y Sistemas",
+                btn_explore: "Explorar", btn_view: "Ver Galería", btn_back: "← Volver",
+                list_games: "Juegos <span>Publicados</span>", list_showcase: "Portfolio <span>Técnico</span>",
+                price_title: "Tarifas <span>Sistemas</span>", price_warn: "⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD",
+                p1_name: "Sistemas Básicos", p1_val: "$120 MXN", p2_name: "Sistemas Medios", p2_val: "$180 – $360 MXN",
+                p3_name: "Sistemas Premium", p3_val: "$480 – $960 MXN", contact_title: "Contacto <span>Directo</span>",
+                btn_lang: "ES / MXN"
+            },
+            en: {
+                nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
+                hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
+                hero_tag: "LUAU SCRIPTER | 4+ YEARS", proj_title: "My <span>Projects</span>",
+                cat_games: " Games Worked", cat_showcase: " Showcases & Systems",
+                btn_explore: "Explore", btn_view: "View Gallery", btn_back: "← Back",
+                list_games: "Published <span>Games</span>", list_showcase: "Technical <span>Portfolio</span>",
+                price_title: "System <span>Rates</span>", price_warn: " PRICES MAY CHANGE BASED ON COMPLEXITY",
+                p1_name: "Basic Systems", p1_val: "$7 USD", p2_name: "Medium Systems", p2_val: "$10 – $20 USD",
+                p3_name: "Premium Systems", p3_val: "$28 – $55 USD", contact_title: "Direct <span>Contact</span>",
+                btn_lang: "EN / USD"
+            }
+        };
+
+        let currentLang = 'es';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerHTML = translations[currentLang][key];
+            });
+            document.getElementById('langToggle').innerText = translations[currentLang].btn_lang;
+        }
+
         function navigate(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
@@ -239,7 +261,6 @@
         function openSubMenu(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>
