@@ -75,6 +75,13 @@
         }
         .roblox-btn:hover { background: var(--purple); color: white; box-shadow: 0 0 20px var(--purple-glow); }
 
+        /* Hero */
+        .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 40px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
+        .hero-text h1 span { color: var(--purple); }
+        .avatar-img { width: 300px; height: 300px; object-fit: contain; filter: drop-shadow(0 0 20px var(--purple)); }
+
         /* Item Cards */
         .item-card {
             background: var(--card); border: 1px solid var(--border); border-radius: 20px;
@@ -89,21 +96,12 @@
         .val-tag { color: var(--purple); font-weight: 900; font-size: 1.3rem; text-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
 
         .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .photo-card {
-            position: relative; border-radius: 15px; overflow: hidden; height: 220px;
-            border: 1px solid var(--border); background: var(--card);
-        }
-        .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .photo-info {
-            position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.9)); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;
-        }
-
-        footer { text-align: center; padding: 40px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px; }
         
+        footer { text-align: center; padding: 40px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px; }
         .back-btn { background: var(--border); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; }
 
         @media (max-width: 600px) { 
+            .hero { flex-direction: column-reverse; text-align: center; }
             .profile-section { flex-direction: column; text-align: center; }
             .profile-info { flex-direction: column; }
         }
@@ -138,15 +136,26 @@
                 <img src="https://www.image2url.com/r2/default/images/1778359745011-dea12427-0b96-4bf9-918e-e433067a4ea0.webp" class="avatar-img">
             </div>
 
+            <!-- PERFIL DE ROBLOX -->
             <div class="profile-section">
                 <div class="profile-info">
                     <i class="fa-solid fa-id-card"></i>
                     <div class="profile-name">
                         <h4 data-i18n="rbx_profile_title">Perfil de Roblox</h4>
-                        <p>SanchezLuaaa (@SanchezLuaaa)</p>
+                        <p>SanchezLuaDRaquel (@SanchezLuaaa)</p>
                     </div>
                 </div>
                 <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="roblox-btn">Ver Perfil</a>
+            </div>
+
+            <!-- SOBRE MÍ -->
+            <div class="item-card" style="cursor: default; margin-top: 30px;">
+                <div class="card-content">
+                    <h3 style="margin-top: 0; color: var(--purple);" data-i18n="about_title">Sobre mí</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.6;" data-i18n="about_text">
+                        Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia técnica especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -181,16 +190,6 @@
                         <span class="val-tag">JUGAR</span>
                     </div>
                 </a>
-            </div>
-        </div>
-
-        <div id="projects-showcase" class="section">
-            <button class="back-btn" onclick="navigate('projects')">← Volver</button>
-            <div class="grid-layout">
-                <div class="photo-card">
-                    <img src="https://www.image2url.com/r2/default/images/1778361693944-f6fcc49c-8cbf-4e41-9639-1c2e20cd45fd.png">
-                    <div class="photo-info">Sistema de Tienda</div>
-                </div>
             </div>
         </div>
 
@@ -247,6 +246,7 @@
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
                 rbx_profile_title: "Perfil de Roblox",
+                about_title: "Sobre mí", about_text: "Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia técnica especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.",
                 proj_title: "Mis <span>Proyectos</span>", cat_games: "Juegos Trabajados", cat_showcase: "Sistemas y UI (Fotos)",
                 price_title: "Tarifas <span>Sistemas</span>", contact_title: "Contacto <span>Directo</span>", btn_lang: "ES / MXN",
                 p1_name: "Sistemas Simples", p1_desc: "UI básica, funciones pequeñas y ajustes rápidos de scripts existentes.",
@@ -257,6 +257,7 @@
                 nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
                 rbx_profile_title: "Roblox Profile",
+                about_title: "About Me", about_text: "Hi, I'm SanchezLuaaa. I'm a Roblox developer with over 4 years of technical experience in Luau. I love creating optimized systems, modern interfaces, and advanced visual effects.",
                 proj_title: "My <span>Projects</span>", cat_games: "Games Worked", cat_showcase: "Systems & UI (Photos)",
                 price_title: "System <span>Rates</span>", contact_title: "Direct <span>Contact</span>", btn_lang: "EN / USD",
                 p1_name: "Simple Systems", p1_desc: "Basic UI, small functions, and quick adjustments to existing scripts.",
