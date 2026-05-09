@@ -73,6 +73,7 @@
         .item-card {
             background: var(--card); border: 1px solid var(--border); border-radius: 20px;
             margin-bottom: 20px; padding: 25px; border-left: 4px solid var(--purple);
+            text-decoration: none; color: white; display: block;
         }
         .item-card h3 { margin-top: 0; color: var(--purple); }
 
@@ -82,7 +83,6 @@
             padding: 20px; border-radius: 15px; text-decoration: none; color: white;
             font-weight: 900; font-size: 1rem; text-transform: uppercase; transition: 0.3s;
         }
-        .social-link i { font-size: 1.4rem; }
         .social-icon-img { width: 24px; height: 24px; object-fit: contain; }
         .btn-discord { background: var(--discord-color); }
         .btn-youtube { background: var(--youtube-color); }
@@ -115,7 +115,7 @@
 
     <div class="container">
         
-        <!-- HOME -->
+        <!-- HOME / SOBRE MÍ -->
         <div id="home" class="section active">
             <div class="hero">
                 <div class="hero-text">
@@ -123,33 +123,52 @@
                     <p data-i18n="hero_subtitle">Scripter y UI Designer | SanchezLuaaa</p>
                     <div>
                         <span class="badge">LUAU | 4+ AÑOS</span>
-                        <span class="badge">UI DESIGNER</span>
+                        <span class="badge">UI DESIGN</span>
                     </div>
                 </div>
                 <img src="https://www.image2url.com/r2/default/images/1778359745011-dea12427-0b96-4bf9-918e-e433067a4ea0.webp" class="avatar-img" alt="SanchezLuaaa">
             </div>
 
-            <div class="item-card">
+            <div class="item-card" style="cursor:default;">
                 <h3 data-i18n="about_title">Sobre mí</h3>
                 <p style="color: var(--text-secondary); line-height: 1.6;" data-i18n="about_text">
-                    Soy un desarrollador y scripter profesional de Roblox conocido como SanchezLua, con más de 4 años de experiencia técnica en Luau. Me especializo en la creación de sistemas avanzados de iluminación y arquitecturas de código organizadas. Mi enfoque siempre es entregar un trabajo profesional y de alta calidad.
+                    Soy SanchezLua, un desarrollador profesional de Roblox con más de 4 años de experiencia técnica. Me especializo en scripting con Luau, diseño de UI y creación de sistemas complejos como visualizadores de sonido e iluminación sincronizada. Mi prioridad es mantener un código organizado y profesional en cada proyecto.
                 </p>
             </div>
         </div>
 
-        <!-- PROYECTOS -->
+        <!-- MENÚ PROYECTOS -->
         <div id="projects" class="section">
             <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
-            <div class="grid-layout">
-                <div class="item-card" onclick="openSubMenu('projects-visual')" style="cursor:pointer;">
-                    <h3 data-i18n="cat_showcase">Showcase Visual</h3>
-                    <p style="color:var(--text-secondary)" data-i18n="cat_desc">Sistemas de UI e iluminación.</p>
-                    <span style="color:var(--purple); font-weight:800;">VER GALERÍA →</span>
+            
+            <div class="item-card" onclick="openSubMenu('projects-games')" style="cursor:pointer;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3 data-i18n="cat_games">Juegos Trabajados</h3>
+                    <span style="color:var(--purple); font-weight:900;">Explorar →</span>
+                </div>
+            </div>
+
+            <div class="item-card" onclick="openSubMenu('projects-visual')" style="cursor:pointer;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3 data-i18n="cat_showcase">Showcase de Fotos (Sistemas)</h3>
+                    <span style="color:var(--purple); font-weight:900;">Ver Galería →</span>
                 </div>
             </div>
         </div>
 
-        <!-- SUBMENÚ: GALERÍA -->
+        <!-- SUBMENÚ: JUEGOS -->
+        <div id="projects-games" class="section">
+            <button class="back-btn" onclick="navigate('projects')">← Volver</button>
+            <h2 style="margin-bottom:30px;">Juegos <span>Publicados</span></h2>
+            <div class="grid-layout">
+                <div class="item-card">
+                    <h3>Nombre del Proyecto</h3>
+                    <p style="color:var(--text-secondary)">Descripción del juego en el que trabajaste.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMENÚ: FOTOS -->
         <div id="projects-visual" class="section">
             <button class="back-btn" onclick="navigate('projects')">← Volver</button>
             <h2 style="margin-bottom:30px;">Portfolio <span>Visual</span></h2>
@@ -164,8 +183,9 @@
         <!-- PRECIOS -->
         <div id="prices" class="section">
             <h2 data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
-            <div class="item-card"><div style="display:flex; justify-content:space-between;"><h3 data-i18n="p1_name">Sistemas Básicos</h3><span style="color:var(--purple); font-weight:900;">$120 MXN</span></div></div>
-            <div class="item-card"><div style="display:flex; justify-content:space-between;"><h3 data-i18n="p2_name">Sistemas Medios</h3><span style="color:var(--purple); font-weight:900;">$180 – $360 MXN</span></div></div>
+            <div class="item-card" style="cursor:default;"><div style="display:flex; justify-content:space-between;"><h3 data-i18n="p1_name">Sistemas Básicos</h3><span style="color:var(--purple); font-weight:900;">$120 MXN</span></div></div>
+            <div class="item-card" style="cursor:default;"><div style="display:flex; justify-content:space-between;"><h3 data-i18n="p2_name">Sistemas Medios</h3><span style="color:var(--purple); font-weight:900;">$180 – $360 MXN</span></div></div>
+            <div class="item-card" style="cursor:default;"><div style="display:flex; justify-content:space-between;"><h3 data-i18n="p3_name">Sistemas Premium</h3><span style="color:var(--purple); font-weight:900;">$480+ MXN</span></div></div>
         </div>
 
         <!-- CONTACTO -->
@@ -194,18 +214,18 @@
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
                 about_title: "Sobre mí", 
-                about_text: "Soy un desarrollador y scripter profesional de Roblox conocido como SanchezLua, con más de 4 años de experiencia técnica en Luau. Me especializo en la creación de sistemas avanzados de iluminación y arquitecturas de código organizadas.",
-                proj_title: "Mis <span>Proyectos</span>", cat_showcase: "Showcase Visual", cat_desc: "Sistemas de UI e iluminación.",
-                price_title: "Tarifas <span>Sistemas</span>", p1_name: "Sistemas Básicos", p2_name: "Sistemas Medios",
+                about_text: "Soy SanchezLua, un desarrollador profesional de Roblox con más de 4 años de experiencia técnica. Me especializo en scripting con Luau, diseño de UI y creación de sistemas complejos como visualizadores de sonido e iluminación sincronizada. Mi prioridad es mantener un código organizado y profesional en cada proyecto.",
+                proj_title: "Mis <span>Proyectos</span>", cat_games: "Juegos Trabajados", cat_showcase: "Showcase de Fotos (Sistemas)",
+                price_title: "Tarifas <span>Sistemas</span>", p1_name: "Sistemas Básicos", p2_name: "Sistemas Medios", p3_name: "Sistemas Premium",
                 contact_title: "Contacto <span>Directo</span>", roblox_profile: "Perfil de Roblox", btn_lang: "ES / MXN"
             },
             en: {
                 nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
                 about_title: "About Me",
-                about_text: "I am a professional Roblox developer and scripter known as SanchezLua, with over 4 years of technical experience in Luau. I specialize in creating advanced lighting systems and organized code architectures.",
-                proj_title: "My <span>Projects</span>", cat_showcase: "Visual Showcase", cat_desc: "UI and lighting systems.",
-                price_title: "System <span>Rates</span>", p1_name: "Basic Systems", p2_name: "Medium Systems",
+                about_text: "I am SanchezLua, a professional Roblox developer with over 4 years of technical experience. I specialize in Luau scripting, UI design, and building complex systems like sound visualizers and synchronized lighting. My priority is maintaining organized and professional code in every project.",
+                proj_title: "My <span>Projects</span>", cat_games: "Games Worked", cat_showcase: "Photo Showcase (Systems)",
+                price_title: "System <span>Rates</span>", p1_name: "Basic Systems", p2_name: "Medium Systems", p3_name: "Premium Systems",
                 contact_title: "Direct <span>Contact</span>", roblox_profile: "Roblox Profile", btn_lang: "EN / USD"
             }
         };
