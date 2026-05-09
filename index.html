@@ -13,6 +13,7 @@
             --card: #0f0f12;
             --border: #1f1f23;
             --text-secondary: #94a3b8;
+            --status-bg: #f1f5f9; /* Color claro para el indicador tipo imagen */
         }
 
         * { box-sizing: border-box; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -57,6 +58,41 @@
         .section { display: none; animation: slideUp 0.6s forwards; }
         .section.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Estilo del Indicador de Comisiones (imagen_692210.png) */
+        .commission-status {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f1f5f9; /* Fondo claro como la imagen */
+            padding: 10px 24px;
+            border-radius: 40px;
+            gap: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #22c55e; /* Verde brillante */
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            color: #1e293b; /* Texto oscuro para contraste en fondo claro */
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
         .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 40px; }
         .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
@@ -113,6 +149,15 @@
         
         <!-- SECCIÓN INICIO -->
         <div id="home" class="section active">
+            
+            <!-- Indicador inspirado en image_692210.png -->
+            <div style="text-align: center;">
+                <div class="commission-status">
+                    <div class="status-dot"></div>
+                    <span class="status-text" data-i18n="status_commissions">Accepting Private Commissions</span>
+                </div>
+            </div>
+
             <div class="hero">
                 <div class="hero-text">
                     <h1 data-i18n="hero_title">ROBLOX<br><span>DEVELOPER.</span></h1>
@@ -138,7 +183,7 @@
             </div>
         </div>
 
-        <!-- MENU PROYECTOS -->
+        <!-- RESTO DE SECCIONES (Proyectos, Precios, etc.) -->
         <div id="projects" class="section">
             <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
             <div class="item-card" onclick="openSubMenu('projects-games')">
@@ -159,14 +204,10 @@
             </div>
         </div>
 
-        <!-- LISTA JUEGOS -->
         <div id="projects-games" class="section">
             <button class="back-btn" onclick="openSubMenu('projects')" data-i18n="btn_back">← Volver</button>
             <h2 data-i18n="list_games">Juegos <span>Publicados</span></h2>
-            
-            <!-- Ejemplo de Juego -->
-            <a href="URL_DEL_JUEGO" target="_blank" class="item-card">
-                <img src="URL_IMAGEN_THUMBNAIL" class="card-image" alt="Game Thumbnail">
+            <a href="#" target="_blank" class="item-card">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <h3>Mi Proyecto Principal</h3>
@@ -176,14 +217,10 @@
             </a>
         </div>
 
-        <!-- LISTA SHOWCASES -->
         <div id="projects-showcase" class="section">
             <button class="back-btn" onclick="openSubMenu('projects')" data-i18n="btn_back">← Volver</button>
             <h2 data-i18n="list_showcase">Portfolio <span>Técnico</span></h2>
-            
-            <!-- Ejemplo de Showcase -->
-            <a href="URL_DEL_SHOWCASE" target="_blank" class="item-card">
-                <img src="URL_IMAGEN_THUMBNAIL" class="card-image" alt="Showcase Thumbnail">
+            <a href="#" target="_blank" class="item-card">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <h3>Sistema de Iluminación</h3>
@@ -193,7 +230,6 @@
             </a>
         </div>
 
-        <!-- PRECIOS -->
         <div id="prices" class="section">
             <h2 data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
             <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 30px;" data-i18n="price_warn">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
@@ -208,7 +244,6 @@
             </div></div></div>
         </div>
 
-        <!-- CONTACTO -->
         <div id="social" class="section">
             <h2 style="margin-bottom: 40px;" data-i18n="contact_title">Contacto <span>Directo</span></h2>
             <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900;">DISCORD COMUNIDAD</a>
@@ -224,6 +259,7 @@
         const translations = {
             es: {
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
+                status_commissions: "Comisiones Privadas Abiertas",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
                 hero_tag: "LUAU SCRIPTER | 4+ AÑOS", hero_tag_ui: "UI DESIGNER | PROFESIONAL",
                 about_title: "Sobre mí", about_text: "Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados.",
@@ -237,6 +273,7 @@
             },
             en: {
                 nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
+                status_commissions: "Accepting Private Commissions",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
                 hero_tag: "LUAU SCRIPTER | 4+ YEARS", hero_tag_ui: "UI DESIGNER | PROFESSIONAL",
                 about_title: "About Me", about_text: "Hi, I'm SanchezLuaaa. I'm a Roblox developer with over 4 years of experience specializing in Luau. I'm passionate about creating optimized systems, modern interfaces, and advanced visual effects.",
