@@ -14,8 +14,6 @@
             --card: #0f0f12;
             --border: #1f1f23;
             --text-secondary: #94a3b8;
-            --discord-color: #5865F2;
-            --youtube-color: #FF0000;
         }
 
         * { box-sizing: border-box; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -27,7 +25,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .grid-bg { 
@@ -68,11 +65,11 @@
             padding: 10px 24px; border-radius: 40px; gap: 12px; margin-bottom: 30px; border: 1px solid var(--border);
         }
         .status-dot {
-            width: 10px; height: 10px; background-color: #22c55e; border-radius: 50%;
-            box-shadow: 0 0 10px #22c55e; animation: pulse-green 2s infinite;
+            width: 10px; height: 10px; background-color: var(--purple); border-radius: 50%;
+            box-shadow: 0 0 10px var(--purple); animation: pulse-purple 2s infinite;
         }
         .status-text { color: #fff; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-        @keyframes pulse-green {
+        @keyframes pulse-purple {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.2); }
         }
@@ -94,12 +91,13 @@
         }
         .item-card:hover { transform: translateY(-5px); border-color: var(--purple); background: #16161a; }
         
+        .card-image { width: 100%; height: 200px; object-fit: cover; background: #1a1a1e; }
         .card-content { padding: 30px; border-left: 4px solid var(--purple); }
         
         .card-price-layout {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* ALINEACIÓN CENTRADA VERTICALMENTE */
+            align-items: center;
             min-height: 50px;
         }
 
@@ -111,6 +109,20 @@
             font-size: 1.3rem; 
             text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
             text-align: right;
+        }
+
+        /* Portfolio/Showcase Cards */
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+        .photo-card {
+            position: relative; border-radius: 15px; overflow: hidden; height: 220px;
+            border: 1px solid var(--border); background: var(--card); cursor: default;
+        }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .photo-card:hover img { transform: scale(1.1); }
+        .photo-info {
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9)); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;
         }
 
         /* Advice Box */
@@ -127,21 +139,13 @@
         .advice-box i { color: var(--purple); font-size: 1.2rem; }
         .advice-box p { margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
 
-        /* Social Grid */
-        .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 25px; }
-        .social-link { 
-            display: flex; align-items: center; justify-content: center; gap: 15px;
-            padding: 20px; border-radius: 15px; text-decoration: none; color: white;
-            font-weight: 900; font-size: 1rem; text-transform: uppercase; transition: 0.3s;
-        }
-        .btn-discord { background: var(--discord-color); }
-        .btn-youtube { background: var(--youtube-color); }
-        .btn-roblox { background: #1a1a1c; border: 1px solid #333; }
-        .social-icon-img { width: 24px; height: 24px; }
+        .back-btn { background: var(--border); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; }
+        .back-btn:hover { background: var(--purple); }
 
         footer { text-align: center; padding: 40px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px; }
 
         @media (max-width: 600px) { 
+            .hero { flex-direction: column-reverse; text-align: center; } 
             .card-price-layout { flex-direction: column; align-items: flex-start; gap: 15px; }
             .val-tag { text-align: left; width: 100%; }
         }
@@ -166,11 +170,12 @@
 
     <div class="container">
         
+        <!-- HOME SECCIÓN -->
         <div id="home" class="section active">
             <div style="text-align: center;">
                 <div class="commission-status">
                     <div class="status-dot"></div>
-                    <span class="status-text" data-i18n="status_commissions">Aceptando Comisiones</span>
+                    <span class="status-text" data-i18n="status_commissions">Comisiones Privadas Abiertas</span>
                 </div>
             </div>
 
@@ -190,12 +195,68 @@
                 <div class="card-content">
                     <h3 style="margin-top: 0; color: var(--purple);" data-i18n="about_title">Sobre mí</h3>
                     <p style="color: var(--text-secondary); line-height: 1.6;" data-i18n="about_text">
-                        Soy un desarrollador con 4 años de experiencia técnica creando sistemas avanzados y optimizados. Mi enfoque es el código limpio y profesional para experiencias de alto nivel.
+                        Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia técnica especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.
                     </p>
                 </div>
             </div>
         </div>
 
+        <!-- MENÚ PROYECTOS (SELECCIÓN PRINCIPAL) -->
+        <div id="projects" class="section">
+            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
+            
+            <div class="item-card" onclick="openSubMenu('projects-games')">
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 data-i18n="cat_games">Juegos Trabajados</h3>
+                        <span class="val-tag">Explorar →</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-card" onclick="openSubMenu('projects-showcase')">
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 data-i18n="cat_showcase">Sistemas y UI (Fotos)</h3>
+                        <span class="val-tag">Ver Galería →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBMENÚ: LISTA DE JUEGOS TRABAJADOS -->
+        <div id="projects-games" class="section">
+            <button class="back-btn" onclick="navigate('projects')">← Volver</button>
+            <h2 style="margin-bottom:30px;">Juegos <span>Publicados</span></h2>
+            
+            <div class="grid-layout">
+                <!-- Juego 1: SanchezShop -->
+                <a href="https://www.roblox.com/games/17094095400/SanchezShop-Engineering" target="_blank" class="item-card">
+                    <img src="https://tr.rbxcdn.com/180DAY-6f77782b5f6a91702f37e4088007a3f0/420/420/Image/Webp" class="card-image" alt="SanchezShop">
+                    <div class="card-content">
+                        <h3>SanchezShop Showcase</h3>
+                        <p style="color:var(--text-secondary); font-size:0.8rem; margin-bottom:10px;">Centro de exhibición técnica para sistemas de iluminación y sonido.</p>
+                        <span class="val-tag">JUGAR</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- SUBMENÚ: SHOWCASE DE FOTOS (SISTEMAS) -->
+        <div id="projects-showcase" class="section">
+            <button class="back-btn" onclick="navigate('projects')">← Volver</button>
+            <h2 style="margin-bottom:30px;">Portfolio <span>Visual</span></h2>
+            
+            <div class="grid-layout">
+                <!-- Foto 1: Tienda de Armas -->
+                <div class="photo-card">
+                    <img src="https://www.image2url.com/r2/default/images/1778361693944-f6fcc49c-8cbf-4e41-9639-1c2e20cd45fd.png" alt="Gun Shop System">
+                    <div class="photo-info">Sistema de Tienda de Armas</div>
+                </div>
+
+
+
+        <!-- PRECIOS SECCIÓN -->
         <div id="prices" class="section">
             <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
             
@@ -228,34 +289,21 @@
 
             <div class="advice-box">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <p data-i18n="price_advice">Nota: Estos precios son una referencia base. El costo final dependerá totalmente de la complejidad del sistema solicitado y el tiempo de desarrollo requerido.</p>
+                <p data-i18n="price_advice">Nota: Estos precios son una referencia base. El costo final dependerá totalmente de la complejidad técnica y el tiempo de desarrollo requerido.</p>
             </div>
         </div>
 
-        <div id="projects" class="section">
-            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
-            <div class="grid-layout">
-                <div class="item-card" onclick="alert('Próximamente')">
-                    <div class="card-content"><h3>Juegos Trabajados</h3></div>
-                </div>
-                <div class="item-card" onclick="alert('Próximamente')">
-                    <div class="card-content"><h3>Sistemas y UI</h3></div>
-                </div>
-            </div>
-        </div>
-
+        <!-- CONTACTO SECCIÓN -->
         <div id="social" class="section">
             <h2 data-i18n="contact_title">Contacto <span>Directo</span></h2>
-            <div class="social-grid">
-                <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="social-link btn-discord">
-                    <i class="fa-brands fa-discord"></i> <span>Discord</span>
+            <div class="grid-layout">
+                <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900;">
+                    <i class="fa-brands fa-discord" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
+                    DISCORD COMUNIDAD
                 </a>
-                <a href="https://www.youtube.com/@SanchezLuaaa" target="_blank" class="social-link btn-youtube">
-                    <i class="fa-brands fa-youtube"></i> <span>YouTube</span>
-                </a>
-                <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="social-link btn-roblox">
-                    <img src="https://www.image2url.com/r2/default/images/1778362776947-7ea48b60-c5df-430c-8c8e-838df8676367.png" class="social-icon-img" alt="Roblox">
-                    <span data-i18n="roblox_profile">Perfil de Roblox</span>
+                <a href="https://www.youtube.com/@SanchezLuaaa" target="_blank" class="item-card" style="background:#FF0000; border:none; padding:25px; align-items:center; font-weight:900;">
+                    <i class="fa-brands fa-youtube" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
+                    YOUTUBE CANAL
                 </a>
             </div>
         </div>
@@ -268,25 +316,27 @@
         const translations = {
             es: {
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
-                status_commissions: "Aceptando Comisiones",
+                status_commissions: "Comisiones Privadas Abiertas",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
                 about_title: "Sobre mí", 
-                about_text: "Soy un desarrollador con 4 años de experiencia técnica creando sistemas avanzados y optimizados. Mi enfoque es el código limpio y profesional para experiencias de alto nivel.",
+                about_text: "Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia técnica especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.",
                 proj_title: "Mis <span>Proyectos</span>",
+                cat_games: "Juegos Trabajados", cat_showcase: "Sistemas y UI (Fotos)",
                 price_title: "Tarifas <span>Sistemas</span>", p1_name: "Sistemas Básicos", p2_name: "Sistemas Medios", p3_name: "Sistemas Premium",
-                price_advice: "Nota: Estos precios son una referencia base. El costo final dependerá totalmente de la complejidad del sistema solicitado y el tiempo de desarrollo requerido.",
-                contact_title: "Contacto <span>Directo</span>", roblox_profile: "Perfil de Roblox", btn_lang: "ES / MXN"
+                price_advice: "Nota: Estos precios son una referencia base. El costo final dependerá totalmente de la complejidad técnica y el tiempo de desarrollo requerido.",
+                contact_title: "Contacto <span>Directo</span>", btn_lang: "ES / MXN"
             },
             en: {
                 nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
-                status_commissions: "Accepting Commissions",
+                status_commissions: "Accepting Private Commissions",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
                 about_title: "About Me",
-                about_text: "I am a developer with 4 years of technical experience creating advanced and optimized systems. My focus is on clean and professional code for high-level experiences.",
+                about_text: "Hi, I'm SanchezLuaaa. I'm a Roblox developer with over 4 years of technical experience specializing in Luau. I'm passionate about creating optimized systems, modern interfaces, and advanced visual effects to take games to the next level.",
                 proj_title: "My <span>Projects</span>",
+                cat_games: "Games Worked", cat_showcase: "Systems & UI (Photos)",
                 price_title: "System <span>Rates</span>", p1_name: "Basic Systems", p2_name: "Medium Systems", p3_name: "Premium Systems",
-                price_advice: "Note: These prices are a base reference. Final cost depends entirely on the complexity of the requested system and development time.",
-                contact_title: "Direct <span>Contact</span>", roblox_profile: "Roblox Profile", btn_lang: "EN / USD"
+                price_advice: "Note: These prices are a base reference. Final cost depends entirely on technical complexity and development time.",
+                contact_title: "Direct <span>Contact</span>", btn_lang: "EN / USD"
             }
         };
 
@@ -318,6 +368,12 @@
             document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
             const navBtn = document.getElementById('btn-' + id);
             if(navBtn) navBtn.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openSubMenu(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
