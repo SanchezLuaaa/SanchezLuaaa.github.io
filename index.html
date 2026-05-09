@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanchezLuaa | Portfolio</title>
+    <title>SanchezLuaa | Architecture Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,10 +22,10 @@
             background-image: radial-gradient(var(--grid) 1px, transparent 1px);
             background-size: 35px 35px;
             color: var(--dark);
-            padding-bottom: 100px;
+            padding-bottom: 80px;
         }
 
-        /* Botón de Traducción Flotante */
+        /* Traductor Flotante */
         .lang-switcher {
             position: fixed;
             top: 20px;
@@ -34,22 +34,24 @@
             background: var(--dark);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
         }
 
-        .lang-switcher:hover { transform: scale(1.05); background: var(--accent); }
+        .lang-switcher:hover { background: var(--accent); transform: scale(1.05); }
 
-        .container { max-width: 1100px; margin: 100px auto; padding: 0 20px; }
+        .container { max-width: 1100px; margin: 90px auto; padding: 0 20px; }
 
-        .header { text-align: center; margin-bottom: 80px; }
-        .header h1 { font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 10px; }
-        
-        /* Grid de Ingeniería */
+        header { text-align: center; margin-bottom: 70px; }
+        header h1 { font-size: 3.5rem; letter-spacing: -2.5px; margin-bottom: 15px; }
+        header p { color: var(--text-gray); font-size: 1.1rem; }
+
+        /* Grid System */
         .grid-wrapper {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -63,26 +65,25 @@
             padding: 35px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
         }
 
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
         .card-wide { grid-column: span 2; }
 
-        /* Estilo del Botón Roblox */
+        /* Perfil Interactivo */
         .profile-card {
             background: var(--dark);
             color: white;
-            display: flex;
-            flex-direction: column;
+            text-align: center;
             align-items: center;
             justify-content: center;
-            text-align: center;
         }
 
         .avatar {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             border: 3px solid var(--accent);
             margin-bottom: 20px;
@@ -90,34 +91,33 @@
         }
 
         .btn-roblox {
-            margin-top: 25px;
             background: var(--accent);
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 12px;
+            padding: 14px 28px;
+            border-radius: 14px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
-            border: 2px solid transparent;
+            margin-top: 20px;
         }
 
-        .btn-roblox:hover { background: transparent; border-color: var(--accent); color: var(--accent); }
+        .btn-roblox:hover { background: white; color: var(--dark); }
 
-        /* Sección de Comisiones Premium */
-        .pricing-section {
-            margin-top: 60px;
-            background: #f8fafc;
-            border-radius: 30px;
-            padding: 50px;
+        /* Pricing Card */
+        .pricing-card {
             text-align: center;
-            border: 1px solid var(--card-border);
+            background: #fcfcfc;
         }
 
-        .price-tag { font-size: 4rem; font-weight: 800; color: var(--dark); margin: 20px 0; }
-        .price-tag span { font-size: 1.2rem; color: var(--text-gray); }
+        .price { font-size: 4.5rem; font-weight: 800; margin: 25px 0; letter-spacing: -3px; }
+        .price span { font-size: 1.2rem; color: var(--text-gray); letter-spacing: 0; }
 
-        @media (max-width: 768px) {
+        .feature-list { list-style: none; padding: 0; text-align: left; margin: 20px 0; }
+        .feature-list li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-gray); display: flex; align-items: center; gap: 10px; }
+        .feature-list li::before { content: "✓"; color: #10b981; font-weight: 900; }
+
+        @media (max-width: 850px) {
             .grid-wrapper { grid-template-columns: 1fr; }
             .card-wide { grid-column: span 1; }
         }
@@ -125,10 +125,10 @@
 </head>
 <body>
 
-    <button class="lang-switcher" onclick="toggleLanguage()" id="langBtn">English / Español</button>
+    <button class="lang-switcher" onclick="toggleLanguage()" id="langBtn">ENGLISH / ESPAÑOL</button>
 
     <div class="container">
-        <header class="header">
+        <header>
             <h1 id="mainTitle">Full-Stack Architecture for Roblox.</h1>
             <p id="mainSub">4+ years of professional Luau scripting & VFX design.</p>
         </header>
@@ -140,20 +140,27 @@
                 <p id="card1Desc">Arquitecturas modulares construidas con Luau moderno, asegurando que la lógica crezca sin deuda técnica.</p>
             </div>
 
-            <!-- Perfil Interactivo -->
+            <!-- Perfil Actualizado con tu ID 1731406039 -->
             <div class="card profile-card">
-                <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1273937395&width=420&height=420&format=png" class="avatar">
+                <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1731406039&width=420&height=420&format=png" class="avatar">
                 <h3>SanchezLuaa</h3>
                 <p style="color: var(--accent)">@Sanchez_Dev</p>
-                <a href="https://www.roblox.com/users/1273937395/profile" target="_blank" class="btn-roblox" id="robloxBtn">ROBLOX PROFILE</a>
+                <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="btn-roblox" id="robloxBtn">ROBLOX PROFILE</a>
             </div>
 
-            <!-- Comisiones Premium -->
-            <div class="card card-wide">
-                <span id="labelPremium" style="font-size: 0.7rem; font-weight: 800; color: var(--accent); letter-spacing: 2px;">PREMIUM ENGAGEMENT</span>
-                <div class="price-tag">$50 <span>USD</span></div>
-                <p id="priceDesc">Tarifa base para comisiones independientes o contratos fijos para proyectos medianos/largos.</p>
-                <a href="#" class="btn-roblox" style="background: var(--dark); margin-top: 20px; display: inline-block;" id="secureBtn">SECURE YOUR PROJECT</a>
+            <!-- Precios y Comisiones -->
+            <div class="card card-wide pricing-card">
+                <span id="labelPremium" style="font-size: 0.75rem; font-weight: 800; color: var(--accent); letter-spacing: 2.5px;">PREMIUM ENGAGEMENT</span>
+                <div class="price">$50 <span>USD</span></div>
+                <p id="priceDesc">Tarifa base inicial para comisiones independientes o contratos fijos a largo plazo.</p>
+                
+                <ul class="feature-list" id="featureList">
+                    <li>Bespoke System Architecture</li>
+                    <li>Fully Documented Codebase</li>
+                    <li>Direct Discord Communication</li>
+                </ul>
+
+                <a href="#" class="btn-roblox" style="background: var(--dark);" id="secureBtn">SECURE YOUR PROJECT</a>
             </div>
         </div>
     </div>
@@ -169,8 +176,9 @@
                 card1Desc: "Modular codebases built with modern Luau, ensuring game logic scales without technical debt.",
                 robloxBtn: "VIEW ROBLOX PROFILE",
                 labelPremium: "PREMIUM ENGAGEMENT",
-                priceDesc: "Starting base rate for independent commissions or fixed retainers for medium/long-term contracts.",
-                secureBtn: "SECURE YOUR PROJECT"
+                priceDesc: "Starting base rate for independent commissions or fixed retainers for long-term contracts.",
+                secureBtn: "SECURE YOUR PROJECT",
+                features: ["Bespoke System Architecture", "Fully Documented Codebase", "Direct Discord Communication"]
             },
             es: {
                 mainTitle: "Arquitectura Full-Stack para Roblox.",
@@ -180,7 +188,8 @@
                 robloxBtn: "VER PERFIL ROBLOX",
                 labelPremium: "CONTRATACIÓN PREMIUM",
                 priceDesc: "Tarifa base inicial para comisiones independientes o contratos fijos a largo plazo.",
-                secureBtn: "ASEGURA TU PROYECTO"
+                secureBtn: "ASEGURA TU PROYECTO",
+                features: ["Arquitectura de Sistemas a Medida", "Código Totalmente Documentado", "Comunicación Directa por Discord"]
             }
         };
 
@@ -196,6 +205,14 @@
             document.getElementById('labelPremium').innerText = t.labelPremium;
             document.getElementById('priceDesc').innerText = t.priceDesc;
             document.getElementById('secureBtn').innerText = t.secureBtn;
+
+            const list = document.getElementById('featureList');
+            list.innerHTML = "";
+            t.features.forEach(f => {
+                const li = document.createElement('li');
+                li.innerText = f;
+                list.appendChild(li);
+            });
         }
     </script>
 </body>
