@@ -72,10 +72,12 @@
         .avatar-container { 
             position: relative; width: 320px; height: 320px; 
             background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%); 
+            display: flex; align-items: center; justify-content: center;
         }
         .avatar-img { 
             width: 100%; height: 100%; object-fit: contain; 
             filter: drop-shadow(0 0 20px var(--purple));
+            border-radius: 50%;
             animation: float 4s ease-in-out infinite;
         }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
@@ -143,7 +145,8 @@
                     </div>
                 </div>
                 <div class="avatar-container">
-                    <img src="image_73b0fd.png" class="avatar-img" alt="SanchezLuaaa Avatar">
+                    <!-- Thumbnail Dinámico de Roblox (ID: 1731406039) -->
+                    <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1731406039&width=420&height=420&format=png" class="avatar-img" alt="SanchezLuaaa Roblox Avatar">
                 </div>
             </div>
         </div>
@@ -151,23 +154,22 @@
         <!-- PROYECTOS -->
         <div id="projects" class="section">
             <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 10px;" data-i18n="proj_title">Mis <span>Trabajos</span></h2>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;" data-i18n="proj_desc">Aquí puedes encontrar los juegos y experiencias en los que he trabajado.</p>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;" data-i18n="proj_desc">Juegos y experiencias desarrolladas íntegramente en la plataforma Roblox.</p>
             
-            <!-- Agrega aquí tus links reales -->
-            <a href="LINK_DE_TU_JUEGO_1" target="_blank" class="item-card">
+            <a href="https://www.roblox.com/games/XXXXXXXX" target="_blank" class="item-card">
                 <div class="card-header">
-                    <h3 style="margin:0;">Nombre del Juego 1</h3>
+                    <h3 style="margin:0;">Experiencia Principal</h3>
                     <span class="val-tag">Roblox</span>
                 </div>
-                <p class="desc-text">Descripción breve del trabajo realizado en este proyecto.</p>
+                <p class="desc-text">Haz clic aquí para ver mi proyecto principal en Roblox.</p>
             </a>
 
-            <a href="LINK_DE_TU_JUEGO_2" target="_blank" class="item-card">
+            <a href="https://www.roblox.com/games/XXXXXXXX" target="_blank" class="item-card">
                 <div class="card-header">
-                    <h3 style="margin:0;">Nombre del Juego 2</h3>
-                    <span class="val-tag">Roblox</span>
+                    <h3 style="margin:0;">Sistema de Base Automática</h3>
+                    <span class="val-tag">Scripting</span>
                 </div>
-                <p class="desc-text">Descripción breve del trabajo realizado en este proyecto.</p>
+                <p class="desc-text">Implementación de PlotManager y teleport automático para jugadores.</p>
             </a>
         </div>
 
@@ -181,7 +183,7 @@
                     <h3 style="margin:0;" data-i18n="price1_title">Sistemas Básicos</h3>
                     <span class="val-tag" data-i18n="price1_val">$120 MXN</span>
                 </div>
-                <p class="desc-text" data-i18n="price1_desc">Scripts esenciales y configuraciones rápidas.</p>
+                <p class="desc-text" data-i18n="price1_desc">Scripts esenciales, corrección de errores básicos y setups rápidos.</p>
             </div>
 
             <div class="item-card" style="cursor: default;">
@@ -189,7 +191,7 @@
                     <h3 style="margin:0;" data-i18n="price2_title">Sistemas Medios</h3>
                     <span class="val-tag" data-i18n="price2_val">$180 – $360 MXN</span>
                 </div>
-                <p class="desc-text" data-i18n="price2_desc">Sistemas con UI personalizada y lógica intermedia.</p>
+                <p class="desc-text" data-i18n="price2_desc">Tiendas, inventarios, animaciones y spawners automatizados.</p>
             </div>
 
             <div class="item-card" style="cursor: default; border-left-color: #d8b4fe;">
@@ -197,7 +199,7 @@
                     <h3 style="margin:0; color:#d8b4fe;" data-i18n="price3_title">Sistemas Premium</h3>
                     <span class="val-tag" style="color:#d8b4fe;" data-i18n="price3_val">$480 – $960 MXN</span>
                 </div>
-                <p class="desc-text" data-i18n="price3_desc">Sistemas complejos a gran escala y alta demanda técnica.</p>
+                <p class="desc-text" data-i18n="price3_desc">Sistemas de alta complejidad, integración de APIs y gestión masiva de datos.</p>
             </div>
         </div>
 
@@ -230,12 +232,12 @@
                 hero_subtitle: "Scripter y UI Designer de Roblox.",
                 hero_tag: "LUAU SCRIPTER | 4+ AÑOS",
                 proj_title: "Mis <span>Trabajos</span>",
-                proj_desc: "Aquí puedes encontrar los juegos y experiencias en los que he trabajado.",
+                proj_desc: "Juegos y experiencias desarrolladas íntegramente en la plataforma Roblox.",
                 prices_title: "Precios <span>Sistemas</span>",
                 prices_warning: "⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD",
-                price1_title: "Sistemas Básicos", price1_val: "$120 MXN", price1_desc: "Scripts esenciales y configuraciones rápidas.",
-                price2_title: "Sistemas Medios", price2_val: "$180 – $360 MXN", price2_desc: "Sistemas con UI personalizada y lógica intermedia.",
-                price3_title: "Sistemas Premium", price3_val: "$480 – $960 MXN", price3_desc: "Sistemas complejos a gran escala y alta demanda técnica.",
+                price1_title: "Sistemas Básicos", price1_val: "$120 MXN", price1_desc: "Scripts esenciales, corrección de errores básicos y setups rápidos.",
+                price2_title: "Sistemas Medios", price2_val: "$180 – $360 MXN", price2_desc: "Tiendas, inventarios, animaciones y spawners automatizados.",
+                price3_title: "Sistemas Premium", price3_val: "$480 – $960 MXN", price3_desc: "Sistemas de alta complejidad, integración de APIs y gestión masiva de datos.",
                 contact_title: "Contacto <span>Profesional</span>",
                 btn_discord: "DISCORD COMUNIDAD", btn_roblox: "PERFIL OFICIAL ROBLOX",
                 btn_lang: "ES / MXN"
@@ -246,12 +248,12 @@
                 hero_subtitle: "Roblox Scripter & UI Designer.",
                 hero_tag: "LUAU SCRIPTER | 4+ YEARS",
                 proj_title: "My <span>Works</span>",
-                proj_desc: "Here you can find the games and experiences I've worked on.",
+                proj_desc: "Games and experiences fully developed on the Roblox platform.",
                 prices_title: "System <span>Prices</span>",
                 prices_warning: "⚠️ PRICES MAY CHANGE BASED ON COMPLEXITY",
-                price1_title: "Basic Systems", price1_val: "$7 USD", price1_desc: "Essential scripts and quick setups.",
-                price2_title: "Medium Systems", price2_val: "$10 – $20 USD", price2_desc: "Systems with custom UI and intermediate logic.",
-                price3_title: "Premium Systems", price3_val: "$28 – $55 USD", price3_desc: "Large-scale complex systems and high technical demand.",
+                price1_title: "Basic Systems", price1_val: "$7 USD", price1_desc: "Essential scripts, basic bug fixes, and quick setups.",
+                price2_title: "Medium Systems", price2_val: "$10 – $20 USD", price2_desc: "Shops, inventories, animations, and automated spawners.",
+                price3_title: "Premium Systems", price3_val: "$28 – $55 USD", price3_desc: "High-complexity systems, API integration, and massive data management.",
                 contact_title: "Professional <span>Contact</span>",
                 btn_discord: "DISCORD COMMUNITY", btn_roblox: "OFFICIAL ROBLOX PROFILE",
                 btn_lang: "EN / USD"
