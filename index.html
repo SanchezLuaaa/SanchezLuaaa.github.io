@@ -3,80 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanchezLua | Professional Roblox Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Fuente profesional -->
+    <title>SanchezLuaa | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --grid: #f0f0f0;
+            --card-border: #e2e8f0;
+            --dark: #0f172a;
+            --accent: #38bdf8;
+            --text-gray: #64748b;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(var(--grid) 1px, transparent 1px);
+            background-size: 35px 35px;
+            color: var(--dark);
+            padding-bottom: 100px;
+        }
+
+        /* Botón de Traducción Flotante */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .lang-switcher:hover { transform: scale(1.05); background: var(--accent); }
+
+        .container { max-width: 1100px; margin: 100px auto; padding: 0 20px; }
+
+        .header { text-align: center; margin-bottom: 80px; }
+        .header h1 { font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 10px; }
+        
+        /* Grid de Ingeniería */
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+        .card-wide { grid-column: span 2; }
+
+        /* Estilo del Botón Roblox */
+        .profile-card {
+            background: var(--dark);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 20px;
+            background: #1e293b;
+        }
+
+        .btn-roblox {
+            margin-top: 25px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-roblox:hover { background: transparent; border-color: var(--accent); color: var(--accent); }
+
+        /* Sección de Comisiones Premium */
+        .pricing-section {
+            margin-top: 60px;
+            background: #f8fafc;
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            border: 1px solid var(--card-border);
+        }
+
+        .price-tag { font-size: 4rem; font-weight: 800; color: var(--dark); margin: 20px 0; }
+        .price-tag span { font-size: 1.2rem; color: var(--text-gray); }
+
+        @media (max-width: 768px) {
+            .grid-wrapper { grid-template-columns: 1fr; }
+            .card-wide { grid-column: span 1; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="grid-background"></div>
+    <button class="lang-switcher" onclick="toggleLanguage()" id="langBtn">English / Español</button>
 
-    <main class="container">
-        <!-- SECCIÓN SUPERIOR: INGENIERÍA -->
-        <h2 class="section-label">Core Engineering</h2>
-        <div class="grid-layout">
-            
-            <!-- Tarjeta de Sistemas Modulares -->
+    <div class="container">
+        <header class="header">
+            <h1 id="mainTitle">Full-Stack Architecture for Roblox.</h1>
+            <p id="mainSub">4+ years of professional Luau scripting & VFX design.</p>
+        </header>
+
+        <div class="grid-wrapper">
+            <!-- Frameworks -->
             <div class="card card-wide">
-                <div class="icon-box">🧱</div>
-                <h3>Advanced Luau Frameworks</h3>
-                <p>Más de 4 años desarrollando arquitecturas modulares y eficientes. Especialista en sistemas escalables que evitan la deuda técnica.</p>
+                <h3 id="card1Title">Advanced Frameworks</h3>
+                <p id="card1Desc">Arquitecturas modulares construidas con Luau moderno, asegurando que la lógica crezca sin deuda técnica.</p>
             </div>
 
-            <!-- Tarjeta de Optimización -->
-            <div class="card">
-                <div class="icon-box">⚡</div>
-                <h3>High Performance</h3>
-                <p>Optimización técnica de scripts para garantizar 60 FPS estables, incluso en sistemas complejos de VFX.</p>
-            </div>
-
-            <!-- PERFIL DE ROBLOX (Personalizado para SanchezLuaa) -->
+            <!-- Perfil Interactivo -->
             <div class="card profile-card">
-                <div class="profile-info">
-                    <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1273937395&width=420&height=420&format=png" alt="SanchezLuaa" class="avatar">
-                    <div>
-                        <h3>SanchezLuaa</h3>
-                        <p>Professional Scripter</p>
-                    </div>
-                </div>
-                <a href="https://www.roblox.com/users/1273937395/profile" target="_blank" class="btn-roblox">View Profile</a>
+                <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1273937395&width=420&height=420&format=png" class="avatar">
+                <h3>SanchezLuaa</h3>
+                <p style="color: var(--accent)">@Sanchez_Dev</p>
+                <a href="https://www.roblox.com/users/1273937395/profile" target="_blank" class="btn-roblox" id="robloxBtn">ROBLOX PROFILE</a>
             </div>
 
-            <!-- Tarjeta de Seguridad e Infraestructura -->
-            <div class="card card-medium">
-                <div class="icon-box">🔒</div>
-                <h3>Secure Networking</h3>
-                <p>Implementación de RemoteEvents seguros y lógica autoritativa del servidor para prevenir exploits y asegurar el juego.</p>
+            <!-- Comisiones Premium -->
+            <div class="card card-wide">
+                <span id="labelPremium" style="font-size: 0.7rem; font-weight: 800; color: var(--accent); letter-spacing: 2px;">PREMIUM ENGAGEMENT</span>
+                <div class="price-tag">$50 <span>USD</span></div>
+                <p id="priceDesc">Tarifa base para comisiones independientes o contratos fijos para proyectos medianos/largos.</p>
+                <a href="#" class="btn-roblox" style="background: var(--dark); margin-top: 20px; display: inline-block;" id="secureBtn">SECURE YOUR PROJECT</a>
             </div>
         </div>
+    </div>
 
-        <!-- SECCIÓN: THE ARCHITECT -->
-        <h2 class="section-label">The Architect</h2>
-        <div class="architect-box">
-            <div class="architect-main">
-                <div class="icon-box">⚙️</div>
-                <div class="text-content">
-                    <h3>Profile & Background</h3>
-                    <p>Me especializo en el desarrollo de sistemas de alto nivel en Roblox. Desde sistemas de iluminación global para <strong>SanchezShop</strong> hasta pantallas de carga profesionales inspiradas en FiveM. Mi código es organizado, limpio y orientado a resultados de élite.</p>
-                </div>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h4>4+ YRS</h4>
-                    <p>ENGINE EXP</p>
-                </div>
-                <div class="stat-item">
-                    <h4>VFX</h4>
-                    <p>LIGHTING EXPERT</p>
-                </div>
-                <div class="status-active">
-                    Full-Time Active <span class="dot"></span>
-                </div>
-            </div>
-        </div>
-    </main>
+    <script>
+        let currentLang = 'es';
 
+        const translations = {
+            en: {
+                mainTitle: "Full-Stack Architecture for Roblox.",
+                mainSub: "4+ years of professional Luau scripting & VFX design.",
+                card1Title: "Advanced Frameworks",
+                card1Desc: "Modular codebases built with modern Luau, ensuring game logic scales without technical debt.",
+                robloxBtn: "VIEW ROBLOX PROFILE",
+                labelPremium: "PREMIUM ENGAGEMENT",
+                priceDesc: "Starting base rate for independent commissions or fixed retainers for medium/long-term contracts.",
+                secureBtn: "SECURE YOUR PROJECT"
+            },
+            es: {
+                mainTitle: "Arquitectura Full-Stack para Roblox.",
+                mainSub: "Más de 4 años de scripting profesional en Luau y diseño VFX.",
+                card1Title: "Frameworks Avanzados",
+                card1Desc: "Arquitecturas modulares construidas con Luau moderno, asegurando que la lógica crezca sin deuda técnica.",
+                robloxBtn: "VER PERFIL ROBLOX",
+                labelPremium: "CONTRATACIÓN PREMIUM",
+                priceDesc: "Tarifa base inicial para comisiones independientes o contratos fijos a largo plazo.",
+                secureBtn: "ASEGURA TU PROYECTO"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            const t = translations[currentLang];
+
+            document.getElementById('mainTitle').innerText = t.mainTitle;
+            document.getElementById('mainSub').innerText = t.mainSub;
+            document.getElementById('card1Title').innerText = t.card1Title;
+            document.getElementById('card1Desc').innerText = t.card1Desc;
+            document.getElementById('robloxBtn').innerText = t.robloxBtn;
+            document.getElementById('labelPremium').innerText = t.labelPremium;
+            document.getElementById('priceDesc').innerText = t.priceDesc;
+            document.getElementById('secureBtn').innerText = t.secureBtn;
+        }
+    </script>
 </body>
 </html>
