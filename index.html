@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanchezLuaa | Professional Roblox Dev</title>
+    <title>SanchezLuaaa | Professional Roblox Dev</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -47,7 +47,6 @@
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 700; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover, .nav-links a.active { color: var(--purple); }
 
-        /* Botón de Idioma */
         .lang-btn {
             background: transparent; border: 1px solid var(--purple); color: var(--purple);
             padding: 6px 12px; border-radius: 8px; font-weight: 900; font-size: 0.7rem;
@@ -55,7 +54,7 @@
         }
         .lang-btn:hover { background: var(--purple); color: white; }
 
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; min-height: 70vh;}
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; min-height: 60vh;}
 
         .section { display: none; animation: slideUp 0.6s forwards; }
         .section.active { display: block; }
@@ -78,7 +77,7 @@
         }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        .price-card, .project-card {
+        .price-card {
             background: var(--card); border: 1px solid var(--border);
             border-radius: 20px; padding: 25px; margin-bottom: 15px;
             border-left: 4px solid var(--purple);
@@ -109,10 +108,13 @@
 
     <nav>
         <div class="nav-inner">
-            <div class="logo">SANCHEZ<span>LUAA</span></div>
+            <div class="logo">SANCHEZ<span>LUAAA</span></div>
             <div class="nav-links">
                 <a onclick="navigate('home')" id="btn-home" class="active" data-i18n="nav_home">Inicio</a>
-                <a onclick="navigate('projects')" id="btn-projects" data-i18n="nav_projects">Proyectos</a>
+                
+                <!-- Link Directo a Proyectos sin sección interna -->
+                <a href="TU_LINK_DE_PORTAFOLIO_AQUI" target="_blank" data-i18n="nav_projects">Proyectos</a>
+                
                 <a onclick="navigate('prices')" id="btn-prices" data-i18n="nav_prices">Precios</a>
                 <a onclick="navigate('social')" id="btn-social" data-i18n="nav_contact">Contacto</a>
                 <button class="lang-btn" onclick="toggleLanguage()" id="langToggle">ES / MXN</button>
@@ -133,68 +135,39 @@
                     </div>
                 </div>
                 <div class="avatar-container">
-                    <!-- Referencia exacta al archivo local solicitado -->
-                    <img src="image_74159a.png" class="avatar-img" alt="SanchezLuaa Avatar">
+                    <!-- Imagen local corregida -->
+                    <img src="image_73b0fd.png" class="avatar-img" alt="SanchezLuaaa Avatar">
                 </div>
-            </div>
-        </div>
-
-        <!-- PROYECTOS -->
-        <div id="projects" class="section">
-            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 30px;" data-i18n="proj_title">Portfolio <span>Destacado</span></h2>
-            
-            <div class="project-card">
-                <div class="card-header">
-                    <h3 style="margin:0;" data-i18n="proj1_title">Sistemas de Iluminación Stage</h3>
-                    <span class="val-tag">VFX & Logic</span>
-                </div>
-                <p class="desc-text" data-i18n="proj1_desc">Desarrollo de controladores de luces sincronizados con strobes globales. Configuración manual de intensidad y velocidades para visibilidad perfecta durante el gameplay. Lógica modular optimizada con búsqueda de audios estructurada en carpetas.</p>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <h3 style="margin:0;" data-i18n="proj2_title">Club Music Systems</h3>
-                    <span class="val-tag">Audio Server</span>
-                </div>
-                <p class="desc-text" data-i18n="proj2_desc">Sistemas de música con cola FIFO, funcionalidad autoplay y detección de IDs inválidas. Interfaz organizada dentro de Frames contenedores y uso de imágenes estáticas por defecto para simplificar el rendimiento visual.</p>
-            </div>
-
-            <div class="project-card">
-                <div class="card-header">
-                    <h3 style="margin:0;" data-i18n="proj3_title">UI & Cinematic Loading Screens</h3>
-                    <span class="val-tag">UX/UI</span>
-                </div>
-                <p class="desc-text" data-i18n="proj3_desc">Pantallas de carga inmersivas estilo FiveM utilizando VideoFrames y ContentProvider. Diseños con barra de llenado fluida, rotación de iconos y transiciones de doble etapa.</p>
             </div>
         </div>
 
         <!-- PRECIOS -->
         <div id="prices" class="section">
             <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 10px;" data-i18n="prices_title">Precios <span>Sistemas</span></h2>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;" data-i18n="prices_desc">Sistemas personalizados hechos a medida con calidad profesional.</p>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;" data-i18n="prices_desc">Sistemas profesionales con soporte y optimización.</p>
 
             <div class="price-card">
                 <div class="card-header">
-                    <h3 style="margin:0;" data-i18n="price1_title">Sistemas Simples</h3>
+                    <h3 style="margin:0;" data-i18n="price1_title">Sistemas Básicos</h3>
                     <span class="val-tag" data-i18n="price1_val">$120 MXN</span>
                 </div>
-                <p class="desc-text" data-i18n="price1_desc">Funciones básicas, UI minimalista y ajustes rápidos de lógica.</p>
+                <p class="desc-text" data-i18n="price1_desc">Scripts esenciales y configuraciones rápidas.</p>
             </div>
 
             <div class="price-card">
                 <div class="card-header">
-                    <h3 style="margin:0;" data-i18n="price2_title">Sistemas Medianos</h3>
+                    <h3 style="margin:0;" data-i18n="price2_title">Sistemas Medios</h3>
                     <span class="val-tag" data-i18n="price2_val">$180 – $360 MXN</span>
                 </div>
-                <p class="desc-text" data-i18n="price2_desc">Tiendas, sistemas de inventario, animaciones y spawners automáticos.</p>
+                <p class="desc-text" data-i18n="price2_desc">Sistemas con UI personalizada y lógica intermedia.</p>
             </div>
 
-            <div class="price-card" style="border-left-color: #d8b4fe;">
+            <div class="price-card">
                 <div class="card-header">
-                    <h3 style="margin:0; color:#d8b4fe;" data-i18n="price3_title">Sistemas Avanzados</h3>
-                    <span class="val-tag" style="color:#d8b4fe;" data-i18n="price3_val">$480 – $960 MXN</span>
+                    <h3 style="margin:0;" data-i18n="price3_title">Sistemas Premium</h3>
+                    <span class="val-tag" data-i18n="price3_val">$480 – $960 MXN</span>
                 </div>
-                <p class="desc-text" data-i18n="price3_desc">Shops completas, integración de módulos complejos y sistemas de vehículos avanzados.</p>
+                <p class="desc-text" data-i18n="price3_desc">Sistemas complejos a gran escala y alta demanda técnica.</p>
             </div>
         </div>
 
@@ -208,34 +181,27 @@
     </div>
 
     <script>
-        // Navegación de Menús
         function navigate(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-            document.getElementById('btn-' + id).classList.add('active');
+            document.querySelectorAll('.nav-links a[id^="btn-"]').forEach(l => l.classList.remove('active'));
+            if(document.getElementById('btn-' + id)) {
+                document.getElementById('btn-' + id).classList.add('active');
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Sistema de Traducción y Moneda
         const translations = {
             es: {
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>",
                 hero_subtitle: "Scripter y UI Designer de Roblox.",
                 hero_tag: "LUAU SCRIPTER | 4+ AÑOS",
-                proj_title: "Portfolio <span>Destacado</span>",
-                proj1_title: "Sistemas de Iluminación Stage",
-                proj1_desc: "Desarrollo de controladores de luces sincronizados con strobes globales. Configuración manual de intensidad y velocidades para visibilidad perfecta durante el gameplay. Lógica modular optimizada con búsqueda de audios estructurada en carpetas.",
-                proj2_title: "Club Music Systems",
-                proj2_desc: "Sistemas de música con cola FIFO, funcionalidad autoplay y detección de IDs inválidas. Interfaz organizada dentro de Frames contenedores y uso de imágenes estáticas por defecto para simplificar el rendimiento visual.",
-                proj3_title: "UI & Cinematic Loading Screens",
-                proj3_desc: "Pantallas de carga inmersivas estilo FiveM utilizando VideoFrames y ContentProvider. Diseños con barra de llenado fluida, rotación de iconos y transiciones de doble etapa.",
                 prices_title: "Precios <span>Sistemas</span>",
-                prices_desc: "Sistemas personalizados hechos a medida con calidad profesional.",
-                price1_title: "Sistemas Simples", price1_val: "$120 MXN", price1_desc: "Funciones básicas, UI minimalista y ajustes rápidos de lógica.",
-                price2_title: "Sistemas Medianos", price2_val: "$180 – $360 MXN", price2_desc: "Tiendas, sistemas de inventario, animaciones y spawners automáticos.",
-                price3_title: "Sistemas Avanzados", price3_val: "$480 – $960 MXN", price3_desc: "Shops completas, integración de módulos complejos y sistemas de vehículos avanzados.",
+                prices_desc: "Sistemas profesionales con soporte y optimización.",
+                price1_title: "Sistemas Básicos", price1_val: "$120 MXN", price1_desc: "Scripts esenciales y configuraciones rápidas.",
+                price2_title: "Sistemas Medios", price2_val: "$180 – $360 MXN", price2_desc: "Sistemas con UI personalizada y lógica intermedia.",
+                price3_title: "Sistemas Premium", price3_val: "$480 – $960 MXN", price3_desc: "Sistemas complejos a gran escala y alta demanda técnica.",
                 contact_title: "Contacto <span>Profesional</span>",
                 btn_discord: "DISCORD COMUNIDAD", btn_roblox: "PERFIL OFICIAL ROBLOX",
                 btn_lang: "ES / MXN"
@@ -245,18 +211,11 @@
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>",
                 hero_subtitle: "Roblox Scripter & UI Designer.",
                 hero_tag: "LUAU SCRIPTER | 4+ YEARS",
-                proj_title: "Featured <span>Portfolio</span>",
-                proj1_title: "Stage Lighting Systems",
-                proj1_desc: "Development of synchronized lighting controllers with global strobes. Manual configuration of intensity and speeds for perfect visibility during gameplay. Optimized modular logic with structured audio folder searches.",
-                proj2_title: "Club Music Systems",
-                proj2_desc: "Music systems featuring FIFO queues, autoplay functionality, and invalid ID detection. Organized UI within container Frames, utilizing static default images to streamline visual performance.",
-                proj3_title: "UI & Cinematic Loading Screens",
-                proj3_desc: "Immersive FiveM-style loading screens using VideoFrames and ContentProvider. Designs featuring smooth fill bars, rotating icons, and dual-stage transitions.",
                 prices_title: "System <span>Prices</span>",
-                prices_desc: "Custom-built systems with professional studio quality.",
-                price1_title: "Simple Systems", price1_val: "$7 USD", price1_desc: "Basic functions, minimalist UI, and quick logic adjustments.",
-                price2_title: "Medium Systems", price2_val: "$10 – $20 USD", price2_desc: "Shops, inventory systems, animations, and auto-spawners.",
-                price3_title: "Advanced Systems", price3_val: "$28 – $55 USD", price3_desc: "Complete shops, complex module integration, and advanced vehicle systems.",
+                prices_desc: "Professional systems with support and optimization.",
+                price1_title: "Basic Systems", price1_val: "$7 USD", price1_desc: "Essential scripts and quick setups.",
+                price2_title: "Medium Systems", price2_val: "$10 – $20 USD", price2_desc: "Systems with custom UI and intermediate logic.",
+                price3_title: "Premium Systems", price3_val: "$28 – $55 USD", price3_desc: "Large-scale complex systems and high technical demand.",
                 contact_title: "Professional <span>Contact</span>",
                 btn_discord: "DISCORD COMMUNITY", btn_roblox: "OFFICIAL ROBLOX PROFILE",
                 btn_lang: "EN / USD"
@@ -267,14 +226,12 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
-            
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
                     element.innerHTML = translations[currentLang][key];
                 }
             });
-            
             document.getElementById('langToggle').innerText = translations[currentLang].btn_lang;
         }
     </script>
