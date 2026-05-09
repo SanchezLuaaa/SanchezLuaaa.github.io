@@ -83,7 +83,7 @@
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
         .badge { background: rgba(168, 85, 247, 0.1); padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; color: var(--purple); border: 1px solid var(--purple); text-transform: uppercase; margin-right: 10px; margin-top: 10px; display: inline-block; }
 
-        /* Cards & Price Centered Right Layout */
+        /* Cards */
         .item-card {
             background: var(--card); border: 1px solid var(--border); border-radius: 20px;
             margin-bottom: 20px; text-decoration: none; display: flex; flex-direction: column;
@@ -111,7 +111,6 @@
             text-align: right;
         }
 
-        /* Portfolio/Showcase Cards */
         .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
 
         .photo-card {
@@ -125,16 +124,9 @@
             background: linear-gradient(transparent, rgba(0,0,0,0.9)); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;
         }
 
-        /* Advice Box */
         .advice-box {
-            background: rgba(168, 85, 247, 0.05);
-            border: 1px dashed var(--purple);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 25px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
+            background: rgba(168, 85, 247, 0.05); border: 1px dashed var(--purple);
+            border-radius: 15px; padding: 20px; margin-top: 25px; display: flex; gap: 15px; align-items: center;
         }
         .advice-box i { color: var(--purple); font-size: 1.2rem; }
         .advice-box p { margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
@@ -201,7 +193,7 @@
             </div>
         </div>
 
-        <!-- MENÚ PROYECTOS (SELECCIÓN PRINCIPAL) -->
+        <!-- MENÚ PROYECTOS -->
         <div id="projects" class="section">
             <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
             
@@ -224,42 +216,41 @@
             </div>
         </div>
 
-        <!-- SUBMENÚ: LISTA DE JUEGOS TRABAJADOS -->
+        <!-- SUBMENÚ: JUEGOS -->
         <div id="projects-games" class="section">
             <button class="back-btn" onclick="navigate('projects')">← Volver</button>
             <h2 style="margin-bottom:30px;">Juegos <span>Publicados</span></h2>
-            
             <div class="grid-layout">
-                <!-- Juego 1: SanchezShop -->
                 <a href="https://www.roblox.com/games/17094095400/SanchezShop-Engineering" target="_blank" class="item-card">
                     <img src="https://tr.rbxcdn.com/180DAY-6f77782b5f6a91702f37e4088007a3f0/420/420/Image/Webp" class="card-image" alt="SanchezShop">
                     <div class="card-content">
                         <h3>SanchezShop Showcase</h3>
-                        <p style="color:var(--text-secondary); font-size:0.8rem; margin-bottom:10px;">Centro de exhibición técnica para sistemas de iluminación y sonido.</p>
+                        <p style="color:var(--text-secondary); font-size:0.8rem; margin-bottom:10px;">Exhibición técnica de iluminación y sonido.</p>
                         <span class="val-tag">JUGAR</span>
                     </div>
                 </a>
             </div>
         </div>
 
-        <!-- SUBMENÚ: SHOWCASE DE FOTOS (SISTEMAS) -->
+        <!-- SUBMENÚ: SHOWCASE VISUAL -->
         <div id="projects-showcase" class="section">
             <button class="back-btn" onclick="navigate('projects')">← Volver</button>
             <h2 style="margin-bottom:30px;">Portfolio <span>Visual</span></h2>
-            
             <div class="grid-layout">
-                <!-- Foto 1: Tienda de Armas -->
                 <div class="photo-card">
-                    <img src="https://www.image2url.com/r2/default/images/1778361693944-f6fcc49c-8cbf-4e41-9639-1c2e20cd45fd.png" alt="Gun Shop System">
+                    <img src="https://www.image2url.com/r2/default/images/1778361693944-f6fcc49c-8cbf-4e41-9639-1c2e20cd45fd.png" alt="Gun Shop">
                     <div class="photo-info">Sistema de Tienda de Armas</div>
                 </div>
+                <div class="photo-card">
+                    <img src="https://tr.rbxcdn.com/180DAY-6f77782b5f6a91702f37e4088007a3f0/420/420/Image/Webp" alt="Lighting Controller">
+                    <div class="photo-info">Stage Lighting System</div>
+                </div>
+            </div>
+        </div>
 
-
-
-        <!-- PRECIOS SECCIÓN -->
+        <!-- PRECIOS -->
         <div id="prices" class="section">
             <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
-            
             <div class="item-card" style="cursor:default;">
                 <div class="card-content">
                     <div class="card-price-layout">
@@ -268,7 +259,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="item-card" style="cursor:default;">
                 <div class="card-content">
                     <div class="card-price-layout">
@@ -277,7 +267,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="item-card" style="cursor:default;">
                 <div class="card-content">
                     <div class="card-price-layout">
@@ -286,24 +275,23 @@
                     </div>
                 </div>
             </div>
-
             <div class="advice-box">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <p data-i18n="price_advice">Nota: Estos precios son una referencia base. El costo final dependerá totalmente de la complejidad técnica y el tiempo de desarrollo requerido.</p>
+                <p data-i18n="price_advice">Nota: Precios base. El costo final depende de la complejidad técnica.</p>
             </div>
         </div>
 
-        <!-- CONTACTO SECCIÓN -->
+        <!-- CONTACTO -->
         <div id="social" class="section">
             <h2 data-i18n="contact_title">Contacto <span>Directo</span></h2>
             <div class="grid-layout">
-                <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900;">
-                    <i class="fa-brands fa-discord" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
-                    DISCORD COMUNIDAD
+                <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:30px; align-items:center; justify-content:center; flex-direction:row; gap:15px;">
+                    <i class="fa-brands fa-discord" style="font-size: 2rem;"></i>
+                    <span style="font-weight:900;">DISCORD</span>
                 </a>
-                <a href="https://www.youtube.com/@SanchezLuaaa" target="_blank" class="item-card" style="background:#FF0000; border:none; padding:25px; align-items:center; font-weight:900;">
-                    <i class="fa-brands fa-youtube" style="font-size: 1.5rem; margin-bottom: 5px;"></i>
-                    YOUTUBE CANAL
+                <a href="https://www.youtube.com/@SanchezLuaaa" target="_blank" class="item-card" style="background:#FF0000; border:none; padding:30px; align-items:center; justify-content:center; flex-direction:row; gap:15px;">
+                    <i class="fa-brands fa-youtube" style="font-size: 2rem;"></i>
+                    <span style="font-weight:900;">YOUTUBE</span>
                 </a>
             </div>
         </div>
@@ -349,22 +337,21 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
-            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 el.innerHTML = translations[currentLang][key];
             });
-
             document.getElementById('price1').innerText = prices[currentLang][0];
             document.getElementById('price2').innerText = prices[currentLang][1];
             document.getElementById('price3').innerText = prices[currentLang][2];
-            
             document.getElementById('langToggle').innerText = translations[currentLang].btn_lang;
         }
 
         function navigate(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            const target = document.getElementById(id);
+            if(target) target.classList.add('active');
+            
             document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
             const navBtn = document.getElementById('btn-' + id);
             if(navBtn) navBtn.classList.add('active');
