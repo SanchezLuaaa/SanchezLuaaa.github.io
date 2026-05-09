@@ -58,13 +58,16 @@
         .section.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
+        .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 40px; }
         .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
         .hero-text h1 span { color: var(--purple); }
 
         .avatar-container { position: relative; width: 320px; height: 320px; background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%); display: flex; align-items: center; justify-content: center; }
         .avatar-img { width: 90%; height: 90%; object-fit: contain; filter: drop-shadow(0 0 20px var(--purple)); animation: float 4s ease-in-out infinite; border-radius: 20px; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        .tag-container { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+        .badge { background: rgba(168, 85, 247, 0.1); padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; color: var(--purple); border: 1px solid var(--purple); text-transform: uppercase; }
 
         .item-card {
             background: var(--card); border: 1px solid var(--border);
@@ -82,7 +85,11 @@
 
         footer { text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px; font-weight: 600; letter-spacing: 1px; }
 
-        @media (max-width: 800px) { .hero { flex-direction: column-reverse; text-align: center; } .hero-text h1 { font-size: 2.8rem; } }
+        @media (max-width: 800px) { 
+            .hero { flex-direction: column-reverse; text-align: center; } 
+            .hero-text h1 { font-size: 2.8rem; } 
+            .tag-container { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -104,14 +111,15 @@
 
     <div class="container">
         
-       <!-- INICIO -->
+        <!-- SECCIÓN INICIO -->
         <div id="home" class="section active">
             <div class="hero">
                 <div class="hero-text">
                     <h1 data-i18n="hero_title">ROBLOX<br><span>DEVELOPER.</span></h1>
                     <p data-i18n="hero_subtitle">Scripter y UI Designer | SanchezLuaaa</p>
-                    <div style="margin-top:30px;">
-                        <span data-i18n="hero_tag" style="background:rgba(168, 85, 247, 0.1); padding:10px 20px; border-radius:50px; font-size:0.8rem; font-weight:800; color:var(--purple); border:1px solid var(--purple);">LUAU SCRIPTER | 4+ AÑOS</span>
+                    <div class="tag-container">
+                        <span class="badge" data-i18n="hero_tag">LUAU SCRIPTER | 4+ AÑOS</span>
+                        <span class="badge" data-i18n="hero_tag_ui">UI DESIGNER | PROFESIONAL</span>
                     </div>
                 </div>
                 <div class="avatar-container">
@@ -119,12 +127,12 @@
                 </div>
             </div>
 
-            <!-- NUEVA SECCIÓN: SOBRE MÍ -->
-            <div class="item-card" style="cursor: default; margin-top: -20px;">
+            <!-- SOBRE MÍ -->
+            <div class="item-card" style="cursor: default; margin-top: 20px;">
                 <div class="card-content">
                     <h3 style="margin-top: 0; color: var(--purple);" data-i18n="about_title">Sobre mí</h3>
                     <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;" data-i18n="about_text">
-                        Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia especializado en Luau. Me apasiona crear interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.
+                        Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.
                     </p>
                 </div>
             </div>
@@ -133,7 +141,6 @@
         <!-- MENU PROYECTOS -->
         <div id="projects" class="section">
             <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
-            
             <div class="item-card" onclick="openSubMenu('projects-games')">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -142,7 +149,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="item-card" onclick="openSubMenu('projects-showcase')">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -153,30 +159,29 @@
             </div>
         </div>
 
-        <!-- JUEGOS -->
+        <!-- LISTA JUEGOS -->
         <div id="projects-games" class="section">
             <button class="back-btn" onclick="openSubMenu('projects')" data-i18n="btn_back">← Volver</button>
             <h2 data-i18n="list_games">Juegos <span>Publicados</span></h2>
             
-            <!-- COPIA DESDE AQUÍ PARA AGREGAR OTRO JUEGO -->
+            <!-- Ejemplo de Juego -->
             <a href="URL_DEL_JUEGO" target="_blank" class="item-card">
                 <img src="URL_IMAGEN_THUMBNAIL" class="card-image" alt="Game Thumbnail">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3>Nombre del Juego</h3>
+                        <h3>Mi Proyecto Principal</h3>
                         <span class="val-tag">Play</span>
                     </div>
                 </div>
             </a>
-            <!-- HASTA AQUÍ -->
         </div>
 
-        <!-- SHOWCASES -->
+        <!-- LISTA SHOWCASES -->
         <div id="projects-showcase" class="section">
             <button class="back-btn" onclick="openSubMenu('projects')" data-i18n="btn_back">← Volver</button>
             <h2 data-i18n="list_showcase">Portfolio <span>Técnico</span></h2>
             
-            <!-- COPIA DESDE AQUÍ PARA AGREGAR OTRO SHOWCASE -->
+            <!-- Ejemplo de Showcase -->
             <a href="URL_DEL_SHOWCASE" target="_blank" class="item-card">
                 <img src="URL_IMAGEN_THUMBNAIL" class="card-image" alt="Showcase Thumbnail">
                 <div class="card-content">
@@ -186,22 +191,18 @@
                     </div>
                 </div>
             </a>
-            <!-- HASTA AQUÍ -->
         </div>
 
         <!-- PRECIOS -->
         <div id="prices" class="section">
             <h2 data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
             <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 30px;" data-i18n="price_warn">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
-
             <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex; justify-content:space-between;">
                 <h3 data-i18n="p1_name">Sistemas Básicos</h3><span class="val-tag" data-i18n="p1_val">$120 MXN</span>
             </div></div></div>
-
             <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex; justify-content:space-between;">
                 <h3 data-i18n="p2_name">Sistemas Medios</h3><span class="val-tag" data-i18n="p2_val">$180 – $360 MXN</span>
             </div></div></div>
-
             <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex; justify-content:space-between;">
                 <h3 data-i18n="p3_name">Sistemas Premium</h3><span class="val-tag" data-i18n="p3_val">$480 – $960 MXN</span>
             </div></div></div>
@@ -213,7 +214,6 @@
             <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900;">DISCORD COMUNIDAD</a>
             <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="item-card" style="background:#2d2d2d; border:none; padding:25px; align-items:center; font-weight:900;">PERFIL ROBLOX</a>
         </div>
-
     </div>
 
     <footer>
@@ -225,11 +225,12 @@
             es: {
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
-                hero_tag: "LUAU SCRIPTER | 4+ AÑOS", proj_title: "Mis <span>Proyectos</span>",
-                cat_games: "Juegos Trabajados", cat_showcase: "Showcases y Sistemas",
+                hero_tag: "LUAU SCRIPTER | 4+ AÑOS", hero_tag_ui: "UI DESIGNER | PROFESIONAL",
+                about_title: "Sobre mí", about_text: "Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados.",
+                proj_title: "Mis <span>Proyectos</span>", cat_games: "Juegos Trabajados", cat_showcase: "Showcases y Sistemas",
                 btn_explore: "Explorar", btn_view: "Ver Galería", btn_back: "← Volver",
                 list_games: "Juegos <span>Publicados</span>", list_showcase: "Portfolio <span>Técnico</span>",
-                price_title: "Tarifas <span>Sistemas</span>", price_warn: "LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD",
+                price_title: "Tarifas <span>Sistemas</span>", price_warn: " LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD",
                 p1_name: "Sistemas Básicos", p1_val: "$120 MXN", p2_name: "Sistemas Medios", p2_val: "$180 – $360 MXN",
                 p3_name: "Sistemas Premium", p3_val: "$480 – $960 MXN", contact_title: "Contacto <span>Directo</span>",
                 btn_lang: "ES / MXN"
@@ -237,8 +238,9 @@
             en: {
                 nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
-                hero_tag: "LUAU SCRIPTER | 4+ YEARS", proj_title: "My <span>Projects</span>",
-                cat_games: " Games Worked", cat_showcase: " Showcases & Systems",
+                hero_tag: "LUAU SCRIPTER | 4+ YEARS", hero_tag_ui: "UI DESIGNER | PROFESSIONAL",
+                about_title: "About Me", about_text: "Hi, I'm SanchezLuaaa. I'm a Roblox developer with over 4 years of experience specializing in Luau. I'm passionate about creating optimized systems, modern interfaces, and advanced visual effects.",
+                proj_title: "My <span>Projects</span>", cat_games: "Games Worked", cat_showcase: "Showcases & Systems",
                 btn_explore: "Explore", btn_view: "View Gallery", btn_back: "← Back",
                 list_games: "Published <span>Games</span>", list_showcase: "Technical <span>Portfolio</span>",
                 price_title: "System <span>Rates</span>", price_warn: " PRICES MAY CHANGE BASED ON COMPLEXITY",
@@ -249,7 +251,6 @@
         };
 
         let currentLang = 'es';
-
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             document.querySelectorAll('[data-i18n]').forEach(el => {
