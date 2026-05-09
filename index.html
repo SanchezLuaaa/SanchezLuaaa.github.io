@@ -59,31 +59,7 @@
         .section.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Status Indicador */
-        .commission-status {
-            display: inline-flex; align-items: center; background-color: var(--card);
-            padding: 10px 24px; border-radius: 40px; gap: 12px; margin-bottom: 30px; border: 1px solid var(--border);
-        }
-        .status-dot {
-            width: 10px; height: 10px; background-color: var(--purple); border-radius: 50%;
-            box-shadow: 0 0 10px var(--purple); animation: pulse-purple 2s infinite;
-        }
-        .status-text { color: #fff; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-        @keyframes pulse-purple {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        /* Hero */
-        .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 40px; }
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
-        .hero-text h1 span { color: var(--purple); }
-        .avatar-img { width: 300px; height: 300px; object-fit: contain; filter: drop-shadow(0 0 20px var(--purple)); animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        .badge { background: rgba(168, 85, 247, 0.1); padding: 10px 20px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; color: var(--purple); border: 1px solid var(--purple); text-transform: uppercase; margin-right: 10px; margin-top: 10px; display: inline-block; }
-
-        /* Profile Card - New Section */
+        /* Profile Card */
         .profile-section {
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), transparent);
             border: 1px solid var(--border); border-radius: 24px; padding: 30px; margin-top: 30px;
@@ -108,31 +84,26 @@
         .item-card:hover { transform: translateY(-5px); border-color: var(--purple); background: #16161a; }
         .card-content { padding: 30px; border-left: 4px solid var(--purple); }
         
+        .price-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .price-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4; margin: 0; }
         .val-tag { color: var(--purple); font-weight: 900; font-size: 1.3rem; text-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
 
         .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-
         .photo-card {
             position: relative; border-radius: 15px; overflow: hidden; height: 220px;
-            border: 1px solid var(--border); background: var(--card); cursor: default;
+            border: 1px solid var(--border); background: var(--card);
         }
         .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .photo-card:hover img { transform: scale(1.1); }
         .photo-info {
             position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px;
             background: linear-gradient(transparent, rgba(0,0,0,0.9)); font-weight: 700; font-size: 0.8rem; text-transform: uppercase;
         }
 
-        .advice-box {
-            background: rgba(168, 85, 247, 0.05); border: 1px dashed var(--purple);
-            border-radius: 15px; padding: 20px; margin-top: 25px; display: flex; gap: 15px; align-items: center;
-        }
-        .back-btn { background: var(--border); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; }
-        
         footer { text-align: center; padding: 40px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px; }
+        
+        .back-btn { background: var(--border); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-bottom: 25px; font-weight: 700; text-transform: uppercase; }
 
         @media (max-width: 600px) { 
-            .hero { flex-direction: column-reverse; text-align: center; } 
             .profile-section { flex-direction: column; text-align: center; }
             .profile-info { flex-direction: column; }
         }
@@ -157,52 +128,31 @@
 
     <div class="container">
         
-        <!-- HOME SECCIÓN -->
+        <!-- HOME -->
         <div id="home" class="section active">
-            <div style="text-align: center;">
-                <div class="commission-status">
-                    <div class="status-dot"></div>
-                    <span class="status-text" data-i18n="status_commissions">Comisiones Privadas Abiertas</span>
-                </div>
-            </div>
-
             <div class="hero">
                 <div class="hero-text">
                     <h1 data-i18n="hero_title">ROBLOX<br><span>DEVELOPER.</span></h1>
                     <p data-i18n="hero_subtitle">Scripter y UI Designer | SanchezLuaaa</p>
-                    <div>
-                        <span class="badge">LUAU | 4+ AÑOS</span>
-                        <span class="badge">UI DESIGN</span>
-                    </div>
                 </div>
-                <img src="https://www.image2url.com/r2/default/images/1778359745011-dea12427-0b96-4bf9-918e-e433067a4ea0.webp" class="avatar-img" alt="SanchezLuaaa">
+                <img src="https://www.image2url.com/r2/default/images/1778359745011-dea12427-0b96-4bf9-918e-e433067a4ea0.webp" class="avatar-img">
             </div>
 
-            <!-- NUEVO: APARTADO PERFIL DE ROBLOX -->
             <div class="profile-section">
                 <div class="profile-info">
                     <i class="fa-solid fa-id-card"></i>
                     <div class="profile-name">
                         <h4 data-i18n="rbx_profile_title">Perfil de Roblox</h4>
-                        <p data-i18n="rbx_profile_subtitle">SanchezLuaDRaquel (@SanchezLuaaa)</p>
+                        <p>SanchezLuaaa (@SanchezLuaaa)</p>
                     </div>
                 </div>
-                <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="roblox-btn" data-i18n="rbx_btn">Ver Perfil</a>
-            </div>
-
-            <div class="item-card" style="cursor: default; margin-top: 30px;">
-                <div class="card-content">
-                    <h3 style="margin-top: 0; color: var(--purple);" data-i18n="about_title">Sobre mí</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.6;" data-i18n="about_text">
-                        Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia técnica especializado en Luau. Me apasiona crear sistemas optimizados, interfaces modernas y efectos visuales avanzados para llevar los juegos al siguiente nivel.
-                    </p>
-                </div>
+                <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="roblox-btn">Ver Perfil</a>
             </div>
         </div>
 
-        <!-- SECCIÓN PROYECTOS -->
+        <!-- PROYECTOS -->
         <div id="projects" class="section">
-            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="proj_title">Mis <span>Proyectos</span></h2>
+            <h2 data-i18n="proj_title">Mis <span>Proyectos</span></h2>
             <div class="item-card" onclick="openSubMenu('projects-games')">
                 <div class="card-content">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -221,7 +171,7 @@
             </div>
         </div>
 
-        <!-- SUBMENÚS PROYECTOS -->
+        <!-- SUBMENÚS -->
         <div id="projects-games" class="section">
             <button class="back-btn" onclick="navigate('projects')">← Volver</button>
             <div class="grid-layout">
@@ -241,19 +191,42 @@
                     <img src="https://www.image2url.com/r2/default/images/1778361693944-f6fcc49c-8cbf-4e41-9639-1c2e20cd45fd.png">
                     <div class="photo-info">Sistema de Tienda</div>
                 </div>
-                <div class="photo-card">
-                    <img src="https://tr.rbxcdn.com/180DAY-6f77782b5f6a91702f37e4088007a3f0/420/420/Image/Webp">
-                    <div class="photo-info">Stage Lighting</div>
-                </div>
             </div>
         </div>
 
         <!-- PRECIOS -->
         <div id="prices" class="section">
-            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;" data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
-            <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex;justify-content:space-between;"><h3>Básico</h3><span class="val-tag" id="price1">$120 MXN</span></div></div></div>
-            <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex;justify-content:space-between;"><h3>Medio</h3><span class="val-tag" id="price2">$180 – $360 MXN</span></div></div></div>
-            <div class="item-card" style="cursor:default;"><div class="card-content"><div style="display:flex;justify-content:space-between;"><h3>Premium</h3><span class="val-tag" id="price3">$480+ MXN</span></div></div></div>
+            <h2 data-i18n="price_title">Tarifas <span>Sistemas</span></h2>
+            
+            <div class="item-card" style="cursor:default;">
+                <div class="card-content">
+                    <div class="price-header">
+                        <h3 data-i18n="p1_name">Sistemas Simples</h3>
+                        <span class="val-tag" id="price1">$120 MXN</span>
+                    </div>
+                    <p class="price-desc" data-i18n="p1_desc">UI básica, funciones pequeñas y ajustes rápidos de scripts existentes.</p>
+                </div>
+            </div>
+
+            <div class="item-card" style="cursor:default;">
+                <div class="card-content">
+                    <div class="price-header">
+                        <h3 data-i18n="p2_name">Sistemas Medios</h3>
+                        <span class="val-tag" id="price2">$180 – $360 MXN</span>
+                    </div>
+                    <p class="price-desc" data-i18n="p2_desc">Sistemas de datos (DataStores), herramientas personalizadas y UI avanzadas.</p>
+                </div>
+            </div>
+
+            <div class="item-card" style="cursor:default;">
+                <div class="card-content">
+                    <div class="price-header">
+                        <h3 data-i18n="p3_name">Sistemas Premium</h3>
+                        <span class="val-tag" id="price3">$480+ MXN</span>
+                    </div>
+                    <p class="price-desc" data-i18n="p3_desc">Sistemas complejos (Global Strobes, FIFO Music Queue, Shop System) y optimización total.</p>
+                </div>
+            </div>
         </div>
 
         <!-- CONTACTO -->
@@ -272,21 +245,23 @@
         const translations = {
             es: {
                 nav_home: "Inicio", nav_projects: "Proyectos", nav_prices: "Precios", nav_contact: "Contacto",
-                status_commissions: "Comisiones Privadas Abiertas",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter y UI Designer | SanchezLuaaa",
-                rbx_profile_title: "Perfil de Roblox", rbx_profile_subtitle: "SanchezLuaaa (@SanchezLuaaa)", rbx_btn: "Ver Perfil",
-                about_title: "Sobre mí", about_text: "Hola, soy SanchezLuaaa. Soy un programador de Roblox con más de 4 años de experiencia técnica especializado en Luau. Me apasiona crear sistemas optimizados y efectos visuales avanzados.",
+                rbx_profile_title: "Perfil de Roblox",
                 proj_title: "Mis <span>Proyectos</span>", cat_games: "Juegos Trabajados", cat_showcase: "Sistemas y UI (Fotos)",
-                price_title: "Tarifas <span>Sistemas</span>", contact_title: "Contacto <span>Directo</span>", btn_lang: "ES / MXN"
+                price_title: "Tarifas <span>Sistemas</span>", contact_title: "Contacto <span>Directo</span>", btn_lang: "ES / MXN",
+                p1_name: "Sistemas Simples", p1_desc: "UI básica, funciones pequeñas y ajustes rápidos de scripts existentes.",
+                p2_name: "Sistemas Medios", p2_desc: "Sistemas de datos (DataStores), herramientas personalizadas y UI avanzadas.",
+                p3_name: "Sistemas Premium", p3_desc: "Sistemas complejos (Global Strobes, FIFO Music Queue, Shop System) y optimización total."
             },
             en: {
                 nav_home: "Home", nav_projects: "Projects", nav_prices: "Prices", nav_contact: "Contact",
-                status_commissions: "Private Commissions Open",
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>", hero_subtitle: "Scripter & UI Designer | SanchezLuaaa",
-                rbx_profile_title: "Roblox Profile", rbx_profile_subtitle: "SanchezLuaaa (@SanchezLuaaa)", rbx_btn: "View Profile",
-                about_title: "About Me", about_text: "Hi, I'm SanchezLuaaa. I'm a Roblox developer with over 4 years of technical experience in Luau. I love creating optimized systems and visual effects.",
+                rbx_profile_title: "Roblox Profile",
                 proj_title: "My <span>Projects</span>", cat_games: "Games Worked", cat_showcase: "Systems & UI (Photos)",
-                price_title: "System <span>Rates</span>", contact_title: "Direct <span>Contact</span>", btn_lang: "EN / USD"
+                price_title: "System <span>Rates</span>", contact_title: "Direct <span>Contact</span>", btn_lang: "EN / USD",
+                p1_name: "Simple Systems", p1_desc: "Basic UI, small functions, and quick adjustments to existing scripts.",
+                p2_name: "Medium Systems", p2_desc: "Data systems (DataStores), custom tools, and advanced UI design.",
+                p3_name: "Premium Systems", p3_desc: "Complex systems (Global Strobes, FIFO Music Queue, Shop System) and full optimization."
             }
         };
 
