@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SanchezLuaa | Roblox Professional</title>
+    <title>SanchezLuaa | Professional Roblox Dev</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -24,7 +24,6 @@
             overflow-x: hidden; 
         }
 
-        /* Fondo de Cuadrícula */
         .grid-bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background-image: 
@@ -35,7 +34,6 @@
             opacity: 0.4;
         }
 
-        /* Navbar */
         nav { 
             position: sticky; top: 0; background: rgba(5, 5, 5, 0.8); 
             backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); 
@@ -50,40 +48,37 @@
 
         .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; }
 
-        /* Secciones */
         .section { display: none; animation: slideUp 0.6s forwards; }
         .section.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Hero */
         .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
         .hero-text { flex: 1; }
         .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
         .hero-text h1 span { color: var(--purple); }
-        .hero-text p { font-size: 1.4rem; color: var(--text-secondary); margin-top: 20px; font-weight: 700; letter-spacing: -0.5px; }
+        .hero-text p { font-size: 1.4rem; color: var(--text-secondary); margin-top: 20px; font-weight: 700; }
 
-        /* Avatar Fix */
         .avatar-container { 
-            position: relative; width: 350px; height: 350px; 
+            position: relative; width: 320px; height: 320px; 
             background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%); 
-            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
         }
         .avatar-img { 
-            width: 110%; height: 110%; object-fit: contain; 
-            filter: drop-shadow(0 0 25px var(--purple));
+            width: 100%; height: 100%; object-fit: contain; 
+            filter: drop-shadow(0 0 20px var(--purple));
             animation: float 4s ease-in-out infinite;
         }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* Tarjetas */
-        .project-card { 
-            background: var(--card); border: 1px solid var(--border); 
-            border-radius: 24px; padding: 30px; margin-bottom: 20px; 
-            display: flex; justify-content: space-between; align-items: center; 
-            text-decoration: none; color: white;
+        /* Price Card Styling */
+        .price-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 20px; padding: 25px; margin-bottom: 15px;
+            border-left: 4px solid var(--purple);
         }
-        .project-card:hover { border-color: var(--purple); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15); }
-        .btn-view { background: var(--purple); padding: 12px 24px; border-radius: 12px; font-weight: 900; font-size: 0.75rem; letter-spacing: 1px; }
+        .price-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .price-val { color: var(--purple); font-weight: 900; font-size: 1.1rem; text-align: right; }
+        .price-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.4; }
 
         .social-link { 
             display: flex; align-items: center; justify-content: center; 
@@ -91,7 +86,6 @@
             font-weight: 900; text-decoration: none; color: white; font-size: 1rem;
         }
         .discord-bg { background: #5865F2; }
-        .youtube-bg { background: #FF0000; }
         .roblox-bg { background: #2d2d2d; }
 
         @media (max-width: 800px) {
@@ -110,7 +104,7 @@
             <div class="logo">SANCHEZ<span>LUAA</span></div>
             <div class="nav-links">
                 <a onclick="navigate('home')" id="btn-home" class="active">Inicio</a>
-                <a onclick="navigate('projects')" id="btn-projects">Proyectos</a>
+                <a onclick="navigate('prices')" id="btn-prices">Precios</a>
                 <a onclick="navigate('social')" id="btn-social">Contacto</a>
             </div>
         </div>
@@ -126,43 +120,50 @@
                     <p>Scripter y UI Designer de Roblox.</p>
                     <div style="display:flex; gap:12px; margin-top:30px; flex-wrap: wrap;">
                         <span style="background:#1a1a1e; padding:8px 16px; border-radius:12px; font-size:0.75rem; font-weight:800; color:var(--purple); border:1px solid var(--purple);">4+ AÑOS DE EXPERIENCIA</span>
-                        <span style="background:#1a1a1e; padding:8px 16px; border-radius:12px; font-size:0.75rem; font-weight:800; color:var(--purple); border:1px solid var(--purple);">PROFESSIONAL SERVICES</span>
                     </div>
                 </div>
                 <div class="avatar-container">
-                    <!-- URL Actualizada para asegurar que aparezca el avatar -->
-                    <img src="https://www.roblox.com/headshot-thumbnail/image?userId=1731406039&width=420&height=420&format=png" class="avatar-img" alt="SanchezLuaa Avatar">
+                    <!-- Render Dinámico de Roblox (ID: 1731406039) -->
+                    <img src="https://www.roblox.com/bust-thumbnail/image?userId=1731406039&width=420&height=420&format=png" class="avatar-img" alt="SanchezLuaa Avatar">
                 </div>
             </div>
         </div>
 
-        <!-- PROYECTOS -->
-        <div id="projects" class="section">
-            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 35px;">Mis <span>Proyectos</span></h2>
-            
-            <a href="TU_LINK" target="_blank" class="project-card">
-                <div>
-                    <h3 style="margin:0;">Advanced Systems</h3>
-                    <p style="margin:8px 0 0; color:var(--text-secondary);">Sistemas complejos desarrollados con Luau profesional.</p>
-                </div>
-                <div class="btn-view">VER PROYECTO</div>
-            </a>
+        <!-- PRECIOS -->
+        <div id="prices" class="section">
+            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 10px;">Precios <span>Sistemas Personalizados</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;">Hechos a medida, con calidad de estudio y mecanismos avanzados.</p>
 
-            <a href="TU_LINK" target="_blank" class="project-card">
-                <div>
-                    <h3 style="margin:0;">UI Design Portfolio</h3>
-                    <p style="margin:8px 0 0; color:var(--text-secondary);">Interfaces modernas y optimizadas para juegos.</p>
+            <div class="price-card">
+                <div class="price-header">
+                    <h3 style="margin:0;">Sistemas Simples</h3>
+                    <div class="price-val">Desde 1,000 Robux<br><span style="font-size:0.8rem; opacity:0.8;">$120 MXN</span></div>
                 </div>
-                <div class="btn-view">VER DISEÑOS</div>
-            </a>
+                <p class="price-desc">UI básica, funciones pequeñas y ajustes rápidos.</p>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">
+                    <h3 style="margin:0;">Sistemas Medianos</h3>
+                    <div class="price-val">1,500 – 3,000 Robux<br><span style="font-size:0.8rem; opacity:0.8;">$180 a $360 MXN</span></div>
+                </div>
+                <p class="price-desc">Tiendas, inventarios, animaciones, spawners y lógica modular.</p>
+            </div>
+
+            <div class="price-card" style="border-left-color: #d8b4fe;">
+                <div class="price-header">
+                    <h3 style="margin:0; color:#d8b4fe;">Sistemas Avanzados</h3>
+                    <div class="price-val">4,000 – 8,000 Robux<br><span style="font-size:0.8rem; opacity:0.8;">$480 a $960 MXN</span></div>
+                </div>
+                <p class="price-desc">Shops completas, HUDs, vehículos e integración total entre módulos.</p>
+            </div>
         </div>
 
         <!-- CONTACTO -->
         <div id="social" class="section">
-            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 35px;">Redes <span>Oficiales</span></h2>
-            <a href="TU_DISCORD" target="_blank" class="social-link discord-bg">DISCORD</a>
-            <a href="TU_YOUTUBE" target="_blank" class="social-link youtube-bg">YOUTUBE</a>
-            <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="social-link roblox-bg">ROBLOX PROFILE</a>
+            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 35px;">Network <span>Hub</span></h2>
+            <a href="TU_LINK_DISCORD" target="_blank" class="social-link discord-bg">DISCORD</a>
+            <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="social-link roblox-bg">PERFIL DE ROBLOX</a>
         </div>
 
     </div>
