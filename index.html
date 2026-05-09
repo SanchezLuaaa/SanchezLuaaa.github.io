@@ -47,36 +47,34 @@
         .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 700; font-size: 0.75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;}
         .nav-links a:hover, .nav-links a.active { color: var(--purple); }
 
-        .lang-btn {
-            background: transparent; border: 1px solid var(--purple); color: var(--purple);
-            padding: 6px 12px; border-radius: 8px; font-weight: 900; font-size: 0.7rem;
-            cursor: pointer; text-transform: uppercase; margin-left: 15px;
-        }
-
         .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; flex: 1;}
         .section { display: none; animation: slideUp 0.6s forwards; }
         .section.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* Hero Section */
         .hero { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; }
         .hero-text h1 { font-size: 3.5rem; line-height: 0.85; margin: 0; font-weight: 900; letter-spacing: -3px; }
         .hero-text h1 span { color: var(--purple); }
         .hero-text p { font-size: 1.4rem; color: var(--text-secondary); margin-top: 20px; font-weight: 700; }
 
         .avatar-container { position: relative; width: 320px; height: 320px; background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%); display: flex; align-items: center; justify-content: center; }
-        .avatar-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 20px var(--purple)); animation: float 4s ease-in-out infinite; }
+        .avatar-img { width: 90%; height: 90%; object-fit: contain; filter: drop-shadow(0 0 20px var(--purple)); animation: float 4s ease-in-out infinite; border-radius: 20px; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
+        /* Proyectos Cards */
         .item-card {
             background: var(--card); border: 1px solid var(--border);
-            border-radius: 20px; padding: 25px; margin-bottom: 15px;
-            border-left: 4px solid var(--purple);
-            text-decoration: none; display: block; color: white; cursor: pointer;
+            border-radius: 20px; margin-bottom: 20px;
+            text-decoration: none; display: flex; flex-direction: column; overflow: hidden; color: white; cursor: pointer;
         }
-        .item-card:hover { transform: translateX(10px); background: #16161a; }
-        .val-tag { color: var(--purple); font-weight: 900; font-size: 1.2rem; }
+        .item-card:hover { transform: translateY(-5px); border-color: var(--purple); background: #16161a; }
+        
+        .card-image { width: 100%; height: 200px; object-fit: cover; background: #1a1a1e; }
+        .card-content { padding: 25px; border-left: 4px solid var(--purple); }
+        .val-tag { color: var(--purple); font-weight: 900; font-size: 1.1rem; }
 
-        .back-btn { background: var(--border); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-weight: 700; font-size: 0.8rem; }
+        .back-btn { background: var(--border); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-bottom: 25px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; }
         .back-btn:hover { background: var(--purple); }
 
         footer { text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px; font-weight: 600; letter-spacing: 1px; }
@@ -96,7 +94,6 @@
                 <a onclick="navigate('projects')" id="btn-projects">Proyectos</a>
                 <a onclick="navigate('prices')" id="btn-prices">Precios</a>
                 <a onclick="navigate('social')" id="btn-social">Contacto</a>
-                <button class="lang-btn" onclick="toggleLanguage()" id="langToggle">ES / MXN</button>
             </div>
         </div>
     </nav>
@@ -108,103 +105,126 @@
             <div class="hero">
                 <div class="hero-text">
                     <h1>ROBLOX<br><span>DEVELOPER.</span></h1>
-                    <p>Scripter y UI Designer de Roblox.</p>
+                    <p>Scripter y UI Designer | SanchezLuaaa</p>
                     <div style="margin-top:30px;">
                         <span style="background:rgba(168, 85, 247, 0.1); padding:10px 20px; border-radius:50px; font-size:0.8rem; font-weight:800; color:var(--purple); border:1px solid var(--purple);">LUAU SCRIPTER | 4+ AÑOS</span>
                     </div>
                 </div>
                 <div class="avatar-container">
-                    <!-- RenderBux: Reemplaza TU_USER_ID con 1731406039 -->
+                    <!-- Avatar RenderBux sincronizado con tu ID -->
                     <img src="https://renderbux.com/api/avatar/render?userId=1731406039&type=headshot&size=420" class="avatar-img" alt="SanchezLuaaa Avatar">
                 </div>
             </div>
         </div>
 
-        <!-- MENU PROYECTOS PRINCIPAL -->
+        <!-- CATEGORÍAS PRINCIPALES -->
         <div id="projects" class="section">
-            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 30px;">Selecciona una <span>Categoría</span></h2>
+            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 35px;">Mis <span>Trabajos</span></h2>
             
             <div class="item-card" onclick="openSubMenu('projects-games')">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>🎮 Juegos Trabajados</h3>
-                    <span class="val-tag">Ver Proyectos</span>
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>🎮 Juegos Trabajados</h3>
+                        <span class="val-tag">Explorar</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Experiencias y juegos publicados en Roblox.</p>
                 </div>
-                <p style="color:var(--text-secondary);">Experiencias completas en las que he participado como Scripter.</p>
             </div>
 
             <div class="item-card" onclick="openSubMenu('projects-showcase')">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>✨ Showcases y Portfolio</h3>
-                    <span class="val-tag">Ver Galería</span>
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>✨ Showcases y Sistemas</h3>
+                        <span class="val-tag">Ver Galería</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Sistemas de iluminación, visualizers y UI técnica.</p>
                 </div>
-                <p style="color:var(--text-secondary);">Sistemas visuales, mapas y efectos técnicos destacados.</p>
             </div>
         </div>
 
-        <!-- SUBMENU JUEGOS -->
+        <!-- LISTA DE JUEGOS -->
         <div id="projects-games" class="section">
             <button class="back-btn" onclick="openSubMenu('projects')">← Volver a Categorías</button>
-            <h2 style="margin-bottom: 25px;">Juegos <span>Trabajados</span></h2>
+            <h2 style="margin-bottom: 30px;">Juegos <span>Publicados</span></h2>
             
-            <a href="LINK_JUEGO_1" target="_blank" class="item-card">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>Nombre del Juego 1</h3>
-                    <span class="val-tag">Visitar</span>
+            <!-- Clonar este bloque para más juegos -->
+            <a href="LINK_DE_TU_JUEGO" target="_blank" class="item-card">
+                <img src="URL_MINIATURA_JUEGO" class="card-image" alt="Thumbnail">
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>Nombre del Proyecto</h3>
+                        <span class="val-tag">Visitar</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Descripción breve de lo que programaste aquí.</p>
                 </div>
-                <p style="color:var(--text-secondary);">Rol realizado en este proyecto.</p>
             </a>
         </div>
 
-        <!-- SUBMENU SHOWCASE -->
+        <!-- LISTA DE SHOWCASES -->
         <div id="projects-showcase" class="section">
             <button class="back-btn" onclick="openSubMenu('projects')">← Volver a Categorías</button>
-            <h2 style="margin-bottom: 25px;">Mis <span>Showcases</span></h2>
+            <h2 style="margin-bottom: 30px;">Portfolio <span>Técnico</span></h2>
             
-            <a href="LINK_SHOWCASE_1" target="_blank" class="item-card">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>Showcase Técnico 1</h3>
-                    <span class="val-tag">Ver Detalle</span>
+            <!-- Clonar este bloque para más showcases -->
+            <a href="LINK_DEL_SHOWCASE" target="_blank" class="item-card">
+                <img src="URL_MINIATURA_SISTEMA" class="card-image" alt="Thumbnail">
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>Sistema de Iluminación Global</h3>
+                        <span class="val-tag">Ver Showcase</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Scripts de Strobes y sincronización mediante MessagingService.</p>
                 </div>
-                <p style="color:var(--text-secondary);">Descripción de la tecnología o diseño utilizado.</p>
             </a>
         </div>
 
         <!-- PRECIOS -->
         <div id="prices" class="section">
-            <h2>Precios <span>Sistemas</span></h2>
-            <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; margin-bottom: 25px;">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
+            <h2 style="font-size: 2.5rem; letter-spacing: -2px; margin-bottom: 5px;">Tarifas <span>Sistemas</span></h2>
+            <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 1px;">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
 
             <div class="item-card" style="cursor:default;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>Sistemas Básicos</h3>
-                    <span class="val-tag">$120 MXN</span>
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>Sistemas Básicos</h3>
+                        <span class="val-tag">$120 MXN</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Bug fixes, scripts simples y optimización básica.</p>
                 </div>
             </div>
+
             <div class="item-card" style="cursor:default;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>Sistemas Medios</h3>
-                    <span class="val-tag">$180 – $360 MXN</span>
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>Sistemas Medios</h3>
+                        <span class="val-tag">$180 – $360 MXN</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Sistemas de música, tiendas, inventarios y herramientas.</p>
                 </div>
             </div>
+
             <div class="item-card" style="cursor:default;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <h3>Sistemas Premium</h3>
-                    <span class="val-tag">$480 – $960 MXN</span>
+                <div class="card-content">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3>Sistemas Premium</h3>
+                        <span class="val-tag">$480 – $960 MXN</span>
+                    </div>
+                    <p style="color:var(--text-secondary);">Sistemas complejos, bases automáticas y gestión de datos masivos.</p>
                 </div>
             </div>
         </div>
 
         <!-- CONTACTO -->
         <div id="social" class="section">
-            <h2 style="margin-bottom: 35px;">Contacto <span>Profesional</span></h2>
-            <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card discord" style="background:#5865F2; border:none; text-align:center;">DISCORD COMUNIDAD</a>
-            <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="item-card roblox" style="background:#2d2d2d; border:none; text-align:center;">PERFIL OFICIAL ROBLOX</a>
+            <h2 style="margin-bottom: 40px;">Contacto <span>Directo</span></h2>
+            <a href="https://discord.gg/prBKGzBwjQ" target="_blank" class="item-card" style="background:#5865F2; border:none; padding:25px; align-items:center; font-weight:900; letter-spacing:1px;">DISCORD COMUNIDAD</a>
+            <a href="https://www.roblox.com/users/1731406039/profile" target="_blank" class="item-card" style="background:#2d2d2d; border:none; padding:25px; align-items:center; font-weight:900; letter-spacing:1px;">PERFIL DE ROBLOX</a>
         </div>
 
     </div>
 
     <footer>
-        © 2026 SanchezLuaaa Engineering. All rights reserved.
+        © 2024 SanchezLuaaa Engineering. All rights reserved.
     </footer>
 
     <script>
@@ -220,13 +240,6 @@
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        let currentLang = 'es';
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            document.getElementById('langToggle').innerText = currentLang === 'es' ? 'ES / MXN' : 'EN / USD';
-            // Aquí podrías añadir lógica adicional para cambiar textos dinámicos
         }
     </script>
 </body>
