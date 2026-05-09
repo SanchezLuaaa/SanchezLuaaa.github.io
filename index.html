@@ -22,6 +22,9 @@
             background: var(--bg); 
             color: white; 
             overflow-x: hidden; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .grid-bg { 
@@ -54,7 +57,7 @@
         }
         .lang-btn:hover { background: var(--purple); color: white; }
 
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; min-height: 60vh;}
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 25px; flex: 1;}
 
         .section { display: none; animation: slideUp 0.6s forwards; }
         .section.active { display: block; }
@@ -77,11 +80,13 @@
         }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        .price-card {
+        .item-card {
             background: var(--card); border: 1px solid var(--border);
             border-radius: 20px; padding: 25px; margin-bottom: 15px;
             border-left: 4px solid var(--purple);
+            text-decoration: none; display: block; color: white;
         }
+        .item-card:hover { transform: translateX(10px); background: #16161a; }
         .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
         .val-tag { color: var(--purple); font-weight: 900; font-size: 1.2rem; text-align: right;}
         .desc-text { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.4; }
@@ -93,6 +98,12 @@
         }
         .discord-bg { background: #5865F2; }
         .roblox-bg { background: #2d2d2d; }
+
+        footer {
+            text-align: center; padding: 40px 20px; color: var(--text-secondary);
+            font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 50px;
+            font-weight: 600; letter-spacing: 1px;
+        }
 
         @media (max-width: 800px) {
             .hero { flex-direction: column-reverse; text-align: center; }
@@ -111,10 +122,7 @@
             <div class="logo">SANCHEZ<span>LUAAA</span></div>
             <div class="nav-links">
                 <a onclick="navigate('home')" id="btn-home" class="active" data-i18n="nav_home">Inicio</a>
-                
-                <!-- Link Directo a Proyectos sin sección interna -->
-                <a href="TU_LINK_DE_PORTAFOLIO_AQUI" target="_blank" data-i18n="nav_projects">Proyectos</a>
-                
+                <a onclick="navigate('projects')" id="btn-projects" data-i18n="nav_projects">Proyectos</a>
                 <a onclick="navigate('prices')" id="btn-prices" data-i18n="nav_prices">Precios</a>
                 <a onclick="navigate('social')" id="btn-social" data-i18n="nav_contact">Contacto</a>
                 <button class="lang-btn" onclick="toggleLanguage()" id="langToggle">ES / MXN</button>
@@ -135,18 +143,40 @@
                     </div>
                 </div>
                 <div class="avatar-container">
-                    <!-- Imagen local corregida -->
                     <img src="image_73b0fd.png" class="avatar-img" alt="SanchezLuaaa Avatar">
                 </div>
             </div>
         </div>
 
+        <!-- PROYECTOS -->
+        <div id="projects" class="section">
+            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 10px;" data-i18n="proj_title">Mis <span>Trabajos</span></h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;" data-i18n="proj_desc">Aquí puedes encontrar los juegos y experiencias en los que he trabajado.</p>
+            
+            <!-- Agrega aquí tus links reales -->
+            <a href="LINK_DE_TU_JUEGO_1" target="_blank" class="item-card">
+                <div class="card-header">
+                    <h3 style="margin:0;">Nombre del Juego 1</h3>
+                    <span class="val-tag">Roblox</span>
+                </div>
+                <p class="desc-text">Descripción breve del trabajo realizado en este proyecto.</p>
+            </a>
+
+            <a href="LINK_DE_TU_JUEGO_2" target="_blank" class="item-card">
+                <div class="card-header">
+                    <h3 style="margin:0;">Nombre del Juego 2</h3>
+                    <span class="val-tag">Roblox</span>
+                </div>
+                <p class="desc-text">Descripción breve del trabajo realizado en este proyecto.</p>
+            </a>
+        </div>
+
         <!-- PRECIOS -->
         <div id="prices" class="section">
-            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 10px;" data-i18n="prices_title">Precios <span>Sistemas</span></h2>
-            <p style="color: var(--text-secondary); margin-bottom: 30px;" data-i18n="prices_desc">Sistemas profesionales con soporte y optimización.</p>
+            <h2 style="font-size: 2.2rem; letter-spacing: -2px; margin-bottom: 5px;" data-i18n="prices_title">Precios <span>Sistemas</span></h2>
+            <p style="color: #f87171; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 1px;" data-i18n="prices_warning">⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD</p>
 
-            <div class="price-card">
+            <div class="item-card" style="cursor: default;">
                 <div class="card-header">
                     <h3 style="margin:0;" data-i18n="price1_title">Sistemas Básicos</h3>
                     <span class="val-tag" data-i18n="price1_val">$120 MXN</span>
@@ -154,7 +184,7 @@
                 <p class="desc-text" data-i18n="price1_desc">Scripts esenciales y configuraciones rápidas.</p>
             </div>
 
-            <div class="price-card">
+            <div class="item-card" style="cursor: default;">
                 <div class="card-header">
                     <h3 style="margin:0;" data-i18n="price2_title">Sistemas Medios</h3>
                     <span class="val-tag" data-i18n="price2_val">$180 – $360 MXN</span>
@@ -162,10 +192,10 @@
                 <p class="desc-text" data-i18n="price2_desc">Sistemas con UI personalizada y lógica intermedia.</p>
             </div>
 
-            <div class="price-card">
+            <div class="item-card" style="cursor: default; border-left-color: #d8b4fe;">
                 <div class="card-header">
-                    <h3 style="margin:0;" data-i18n="price3_title">Sistemas Premium</h3>
-                    <span class="val-tag" data-i18n="price3_val">$480 – $960 MXN</span>
+                    <h3 style="margin:0; color:#d8b4fe;" data-i18n="price3_title">Sistemas Premium</h3>
+                    <span class="val-tag" style="color:#d8b4fe;" data-i18n="price3_val">$480 – $960 MXN</span>
                 </div>
                 <p class="desc-text" data-i18n="price3_desc">Sistemas complejos a gran escala y alta demanda técnica.</p>
             </div>
@@ -180,14 +210,16 @@
 
     </div>
 
+    <footer>
+        © 2024 SanchezLuaaa Engineering. All rights reserved.
+    </footer>
+
     <script>
         function navigate(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            document.querySelectorAll('.nav-links a[id^="btn-"]').forEach(l => l.classList.remove('active'));
-            if(document.getElementById('btn-' + id)) {
-                document.getElementById('btn-' + id).classList.add('active');
-            }
+            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+            document.getElementById('btn-' + id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -197,8 +229,10 @@
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>",
                 hero_subtitle: "Scripter y UI Designer de Roblox.",
                 hero_tag: "LUAU SCRIPTER | 4+ AÑOS",
+                proj_title: "Mis <span>Trabajos</span>",
+                proj_desc: "Aquí puedes encontrar los juegos y experiencias en los que he trabajado.",
                 prices_title: "Precios <span>Sistemas</span>",
-                prices_desc: "Sistemas profesionales con soporte y optimización.",
+                prices_warning: "⚠️ LOS PRECIOS PUEDEN CAMBIAR SEGÚN LA COMPLEJIDAD",
                 price1_title: "Sistemas Básicos", price1_val: "$120 MXN", price1_desc: "Scripts esenciales y configuraciones rápidas.",
                 price2_title: "Sistemas Medios", price2_val: "$180 – $360 MXN", price2_desc: "Sistemas con UI personalizada y lógica intermedia.",
                 price3_title: "Sistemas Premium", price3_val: "$480 – $960 MXN", price3_desc: "Sistemas complejos a gran escala y alta demanda técnica.",
@@ -211,8 +245,10 @@
                 hero_title: "ROBLOX<br><span>DEVELOPER.</span>",
                 hero_subtitle: "Roblox Scripter & UI Designer.",
                 hero_tag: "LUAU SCRIPTER | 4+ YEARS",
+                proj_title: "My <span>Works</span>",
+                proj_desc: "Here you can find the games and experiences I've worked on.",
                 prices_title: "System <span>Prices</span>",
-                prices_desc: "Professional systems with support and optimization.",
+                prices_warning: "⚠️ PRICES MAY CHANGE BASED ON COMPLEXITY",
                 price1_title: "Basic Systems", price1_val: "$7 USD", price1_desc: "Essential scripts and quick setups.",
                 price2_title: "Medium Systems", price2_val: "$10 – $20 USD", price2_desc: "Systems with custom UI and intermediate logic.",
                 price3_title: "Premium Systems", price3_val: "$28 – $55 USD", price3_desc: "Large-scale complex systems and high technical demand.",
